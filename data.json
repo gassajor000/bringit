@@ -1,0 +1,22 @@
+{
+    "events" : [
+        {
+            "event-title": "Thanksgiving Dinner",
+            "Hosts": "Jason, Jordan, Andrew",
+            "Date": "11/21"
+
+
+        },
+
+        {
+
+            "event-title": "Christmas Party",
+            "Hosts": "Steve, Esteban, Jordan",
+            "Date": "12/19"
+        }
+
+
+    ]
+
+
+}
