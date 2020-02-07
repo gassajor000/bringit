@@ -1,0 +1,38 @@
+.toolbar{
+    display: inline;
+}
+.toolbar .toolbar-back{
+    float: left;
+    padding-left: 20px;
+}
+.toolbar .toolbar-title{
+    float: left;
+    padding-left: 20px;
+    max-width: 60%;
+}
+.toolbar .toolbar-btn{
+    float: right;
+    padding-right: 20px;
+}
+
+.page-title{
+    margin-top: 0px;
+}
+.item-category{
+    margin-top: 20px;
+}
+.item-cell{
+    text-align: left;
+}
+.btn-primary{
+    background-image: none;
+    padding: 2px 20px;
+    border-radius: 15px;
+}
+.avatar{
+    display: inline-block;
+    background-color: gainsboro;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+}
