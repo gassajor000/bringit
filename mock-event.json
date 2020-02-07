@@ -1,0 +1,56 @@
+{
+"title": "Andrew's Thanksgiving",
+"date": "11/21/2020",
+"type": "Dinner Party",
+"categories": [
+    {
+        "category-name": "Foods: Entrees",
+        "items": [
+            {
+                "item-name": "Spaghetti",
+                "description": "8x11 pan of spaghetti",
+                "quantity": 1,
+                "points": 10,
+                "claimed-by": []
+            }, 
+            {
+                "item-name": "Turkey",
+                "description": "Two cooked turkeys for the dinner",
+                "quantity": 2,
+                "points": 15,
+                "claimed-by": [
+                    "Jason", "Andrew"
+                ]
+            },
+            {
+                "item-name": "Skewers",
+                "description": "Wooden or metal skewers for kabobs",
+                "quantity": 1,
+                "points": 5,
+                "claimed-by": []
+            }
+        ]
+    },
+    {
+        "category-name": "Drinks",
+        "items": [
+            {
+                "item-name": "Sprite",
+                "description": "2 liter bottle of Sprite",
+                "quantity": 2,
+                "points": 10,
+                "claimed-by": []
+            }, 
+            {
+                "item-name": "Cider",
+                "description": "Bottle of sparkling cider",
+                "quantity": 2,
+                "points": 5,
+                "claimed-by": [
+                    "Andrew", "Jordan" 
+                ]
+            }
+        ]
+    }
+]
+}
