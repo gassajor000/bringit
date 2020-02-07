@@ -1,8 +1,31 @@
 <html>
 <head>
-	<title>Test Page</title>
+	<title>Bringit!</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+	<link href="css/bootstrap-thime.min.css" rel="stylesheet">
+	<link href="css/event.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
 </head>
+
 <body>
-Begin here (or replace this with any static code already written).
+	
+	<h1 class="text-center">Bringit!</h1>
+	<h3 class="text-center">My Lists</h3>
+	{{#each events}}
+		<div class="event"> 
+			<a href="placeholder.html">
+			<h3>{{event-title}}</h3><span><h3>{{Date}}</h3></span>
+			<p class="text-left">
+				{{Hosts}}
+			</p>
+			</a>
+			
+		</div>
+		<hr>
+	{{/each}}
+	<div class="text-center"><a alt="add" href="/"><i class="material-icons">add</i></a></div>
 </body>
 </html>
