@@ -10,5 +10,10 @@ exports.view = function(req, res){
 };
 
 Handlebars.registerHelper("getFirstLetter", function(s) {
+  console.log(s);
   return s[0].toUpperCase();
+});
+
+Handlebars.registerHelper("jsonify", function(o) {
+  return JSON.stringify(o);
 });

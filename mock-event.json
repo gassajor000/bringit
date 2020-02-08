@@ -19,7 +19,7 @@
                 "quantity": 2,
                 "points": 15,
                 "claimed-by": [
-                    "Jason", "Andrew"
+                    {"name": "Jason", "quantity": 1} , {"name": "Andrew", "quantity": 1}
                 ]
             },
             {
@@ -47,7 +47,7 @@
                 "quantity": 2,
                 "points": 5,
                 "claimed-by": [
-                    "Andrew", "Jordan" 
+                    {"name": "Andrew", "quantity": 1} , {"name": "Jason", "quantity": 1}
                 ]
             }
         ]

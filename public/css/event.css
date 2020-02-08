@@ -36,3 +36,19 @@
     height: 20px;
     width: 20px;
 }
+
+.item-details-list{
+    list-style: none;
+    text-align: center;
+}
+.chip{
+    padding: 5px 20px;
+    background-color: gainsboro;
+    border-radius: 15px;
+    display: inline;
+    margin: 2px 15px;
+}
+
+.well{
+    background-image: none;
+}
