@@ -5,13 +5,19 @@ $(document).ready(function() {
 	initializePage();
 })
 
+var claimClicked = false;
+
 
 function initializePage(){
     $('#claimModal').on('show.bs.modal', openClaimModal);
+    $('#claimModal').on('hide.bs.modal', function (event){
+        claimClicked = false;
+    });
     $('#detailsModal').on('show.bs.modal', openDetailsModal);
 }
 
 function openClaimModal(event) {
+    claimClicked = true;
     var button = $(event.relatedTarget); // Button that triggered the modal
     var itemName = button.data('item-name'); // Extract info from data-* attributes
     var quantity = button.data('quantity'); // Extract info from data-* attributes
@@ -24,6 +30,12 @@ function openClaimModal(event) {
 
   function openDetailsModal(event) {
     var button = $(event.relatedTarget);
+
+    if(claimClicked){
+        event.stopPropagation();
+        return false;
+    }
+
     var item = button.data('item');
     
     var modal = $(this);
