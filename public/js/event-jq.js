@@ -44,8 +44,12 @@ function openClaimModal(event) {
     modal.find('#item-points').text(item.points + 'pts');
     modal.find('#item-details').text(item.description);
 
-    if (item['claimed-by'] === []){
+    var assignee_list = modal.find("#assignee-list");
+    if (item['claimed-by'].length === 0){
+        assignee_list.addClass('hidden');
         return;
+    } else {
+        assignee_list.removeClass('hidden');
     }
 
     var assignee_code = '<tbody>';
@@ -60,7 +64,7 @@ function openClaimModal(event) {
 
     }
     assignee_code +='</tbody>';
-    modal.find("#assignee-list").html(assignee_code)
+    assignee_list.html(assignee_code)
   }
 
 function makeAvatar(name){
