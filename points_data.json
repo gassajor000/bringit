@@ -1,0 +1,28 @@
+{
+    "people" : [
+        {
+            "Name": "Jordan",
+            "Points": "30"
+
+        },
+
+        {
+            "Name": "Jason",
+            "Points": "25"
+        },
+
+        {
+            "Name": "Steve",
+            "Points": "13"
+        },
+
+        {
+            "Name": "Bob",
+            "Points": "5"
+        }
+
+
+    ]
+
+
+}
