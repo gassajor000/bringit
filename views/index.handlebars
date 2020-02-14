@@ -1,6 +1,9 @@
 <html>
 <head>
 	<title>Bringit!</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
@@ -16,16 +19,15 @@
 	<h3 class="text-center">My Lists</h3>
 	{{#each events}}
 	<a href="/event">
-	<div class="event">
+	<div class="event card">
 		<table> 
-			<a href="/event">
 			<tr>
-				<th>{{event-title}}</th>
-				<th>{{Date}}</th>
+				<th><h3 class="event-title">{{event-title}}</h3></th>
+				<th><h6>{{Date}}</h6></th>
 			</tr>
 
 			<tr>
-				<td>{{Hosts}}</td>		
+				<td><h6>{{Hosts}}</h6></td>		
 			</tr>
 			
 		</table>

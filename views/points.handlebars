@@ -19,16 +19,10 @@
     </div>
 
     <table>
-        <tr class="table-line">
-            <th></th>
-            <th>Names</th>
-            <th>Points</th>
-        </tr>
 	    {{#each people}}
             <tr class="table-line">
-                <td><div class="avatarP">{{getFirstLetter this.Name}}</div></td>
-                <td>{{Name}}</td>
-                <td>{{Points}}</td>
+                <td><div class="avatarP">{{getFirstLetter this.Name}}</div>{{Name}}</td>
+                <td class="points-cell">{{Points}}pts</td>
             </tr>
 	    {{/each}}
     </table>

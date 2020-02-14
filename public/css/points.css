@@ -36,10 +36,17 @@ table {
     background-color: #dddddd;
   }
 
+  .points-cell{
+    padding-right: 50px;
+  }
+
   .avatarP{
-    display: inline-block;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(76, 212, 190);
     text-align: center;
-    height: 20px;
-    width: 20px;
+    height: 40px;
+    width: 40px;
+    margin-right: 40px;
 }
