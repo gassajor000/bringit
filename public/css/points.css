@@ -1,0 +1,24 @@
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #dddddd;
+  }
+  
+  td, th {
+    
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table-line:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .avatarP{
+    display: inline-block;
+    background-color: rgb(76, 212, 190);
+    text-align: center;
+    height: 20px;
+    width: 20px;
+}
