@@ -9,8 +9,11 @@ $(document).ready(function() {
 function initializePage(){
     $('#inputNameSearch').on('input', updateSearchResults);
     $('#inputNameSearch').on('change', function(){
-        $('#inputNameSearch').dropdown('toggle');
+        $('#inputNameSearch')[0].value = '';
     });
+    $('#addGuestsModal').on('hide.bs.modal', updateAvatarList);
+    $('#inputDate').on('change', validateDate);
+
 }
 
 var allPeople = [
@@ -22,6 +25,7 @@ var allPeople = [
 ];
 
 var invitedPeople = [];
+var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
 
 function updateSearchResults(){
     var subs = $('#inputNameSearch')[0].value.toLowerCase();
@@ -34,27 +38,67 @@ function updateSearchResults(){
         }
     }
 
-    var resultsHTML = ''
-    for(var i=0; i < results.length; i++){
-        var person = results[i];
-        resultsHTML += '<li class="dropdown-item"><a href="#" class="search-result">' +  person + '</a></li>';
+    if (results.length > 0){
+        var resultsHTML = ''
+        for(var i=0; i < results.length; i++){
+            var person = results[i];
+            resultsHTML += '<li class="dropdown-item search-result"><a href="#">' +  person + '</a></li>';
+        }
+        $('#search-results').html(resultsHTML);
+        $('.search-result').click(resultClicked);
+    } else {
+        $('#search-results').text('No results');
     }
-    $('#search-results').html(resultsHTML);
-    $('.search-result').click(resultClicked);
+   
 }
 
 function updateInvitedGuests(){
     var guestsHTML = ''
     for(var i=0; i < invitedPeople.length; i++){
         var person = invitedPeople[i];
-        guestsHTML += '<li class="list-group-item">' + person + '</li>';
+        guestsHTML += '<li class="list-group-item invited-guest">' + closeButton + makeAvatar(person) + '<p>' + person + '</p>' + '</li>';
     }
     $('#invited-guests-list').html(guestsHTML);
+    $('.rem-person-btn').click(removePerson);
 }
 
 function resultClicked(e){
 	e.preventDefault();
     var person = $(this).text();
     invitedPeople.push(person);
+    $('#inputNameSearch')[0].value = '';
     updateInvitedGuests();
+}
+
+function makeAvatar(name){
+    return "<div class=\"avatar\">" + name[0].toUpperCase() + "</div>";
+}
+
+function removePerson(){
+    var name = $(this).closest('li').children('p').text();
+    invitedPeople.splice(invitedPeople.indexOf(name), 1);
+    updateInvitedGuests();
+}
+
+function updateAvatarList(){
+    if(invitedPeople.length > 0){
+        var avatarsHTML = ''
+        for(var i=0; i < invitedPeople.length; i++){
+            var person = invitedPeople[i];
+            avatarsHTML += makeAvatar(person);
+        }
+        $('#peopleContainer').html(avatarsHTML);
+    } else{
+        $('#peopleContainer').text('Guests will appear here when you add them');
+    }
+}
+
+function validateDate(){
+    var dateField = $('#inputDate');
+    var pattern = "(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/]\\d\\d";
+    if(dateField[0].value.match(pattern)){
+        $('#invalid-date-alert').hide();
+    } else {
+        $('#invalid-date-alert').show();
+    }
 }

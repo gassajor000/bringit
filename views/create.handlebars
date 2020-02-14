@@ -21,7 +21,7 @@
     </div>  
 
     <div class="container">
-        <form class="form-horizontal">
+        <form class="form-horizontal" id="event-form">
             <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">Event Name</label>
             <div class="col-sm-6">
@@ -38,6 +38,10 @@
             <label for="inputDate" class="col-sm-2 control-label">Date</label>
             <div class="col-sm-6">
                 <input type="text" class="form-control" id="inputDate" placeholder="12/16/19">
+                <div class="alert alert-danger" role="alert" id="invalid-date-alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    Enter a valid date in the from mm/dd/yy
+                    </div>
             </div>
             </div>
             
@@ -52,6 +56,7 @@
         <label for="peopleContainer" class="col-sm-2 form-aligned">People</label>
         <div class="well" id="peopleContainer">
             {{!-- Insert guests as they are added --}}
+            Guests will appear here when you add them
         </div>
 
         <div class='btn-container'>
