@@ -15,17 +15,24 @@
 	<h1 class="text-center">Bringit!</h1>
 	<h3 class="text-center">My Lists</h3>
 	{{#each events}}
-		<div class="event"> 
+	<a href="/event">
+	<div class="event">
+		<table> 
 			<a href="/event">
-			<h3>{{event-title}}</h3><span><h3>{{Date}}</h3></span>
-			<p class="text-left">
-				{{Hosts}}
-			</p>
-			</a>
+			<tr>
+				<th>{{event-title}}</th>
+				<th>{{Date}}</th>
+			</tr>
+
+			<tr>
+				<td>{{Hosts}}</td>		
+			</tr>
 			
-		</div>
+		</table>
+	</div>
+	</a>
 		<hr>
 	{{/each}}
-	<div class="text-center"><a alt="add" href="/"><i class="material-icons">add</i></a></div>
+	<div class="text-center"><a alt="add" href="/create"><i class="material-icons">add</i></a></div>
 </body>
 </html>
