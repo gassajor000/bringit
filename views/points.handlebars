@@ -25,7 +25,7 @@
         </tr>
 	    {{#each people}}
             <tr class="table-line">
-                <td>{{! Put the icons here}}</td>
+                <td><div class="avatarP">{{getFirstLetter this.Name}}</div></td>
                 <td>{{Name}}</td>
                 <td>{{Points}}</td>
             </tr>
