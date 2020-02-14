@@ -1,0 +1,80 @@
+.toolbar{
+    display: inline;
+}
+.toolbar .toolbar-back{
+    float: left;
+    padding-left: 20px;
+}
+.toolbar .toolbar-title{
+    float: left;
+    padding-left: 20px;
+    max-width: 60%;
+}
+.toolbar .toolbar-btn{
+    float: right;
+    padding-right: 20px;
+}
+
+.page-title{
+    margin-top: 0px;
+}
+
+.btn-primary{
+    background-image: none;
+}
+.avatar{
+    display: inline-block;
+    background-color: gainsboro;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+}
+
+#invite-btn{
+    display: inline-flex;
+    align-items: center;
+}
+#invite-btn i{
+    margin-right:20px;
+}
+
+.well{
+    background-image: none;
+}
+.btn-container{
+    text-align:center;
+    width: 100%;
+}
+
+.form-aligned{
+    margin-left: -15px;
+}
+#search-addon i{
+    font-size: 20px;
+}
+#search-results{
+    width: 100%;
+}
+
+#invited-guests-list{
+    margin-top: 20px;
+}
+
+.invited-guest{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.invited-guest p, .invited-guest i, .invited-guest .avatar{
+    margin: 0 18px 0 0;
+}
+
+#peopleContainer .avatar{
+    margin: 0 15px 0 0;
+}
+
+#invalid-date-alert{
+    background-image: none;
+    display: none;
+}
