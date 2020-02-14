@@ -11,8 +11,16 @@ function initializePage(){
     $('#inputNameSearch').on('change', function(){
         $('#inputNameSearch')[0].value = '';
     });
-    $('#addGuestsModal').on('hide.bs.modal', updateAvatarList);
+    // $('#addGuestsModal').on('hide.bs.modal', updateAvatarList);
+    $('#addGuestsModal').on('show.bs.modal', function(){
+        tmpInvitedPeople = Array.from(invitedPeople);
+        updateInvitedGuests();
+    });
     $('#inputDate').on('change', validateDate);
+    $('#invite-submit-btn').click(function(){
+        updateAvatarList();
+        $('#addGuestsModal').modal('hide');
+    });
 
 }
 
@@ -25,6 +33,7 @@ var allPeople = [
 ];
 
 var invitedPeople = [];
+var tmpInvitedPeople = [];
 var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
 
 function updateSearchResults(){
@@ -54,8 +63,8 @@ function updateSearchResults(){
 
 function updateInvitedGuests(){
     var guestsHTML = ''
-    for(var i=0; i < invitedPeople.length; i++){
-        var person = invitedPeople[i];
+    for(var i=0; i < tmpInvitedPeople.length; i++){
+        var person = tmpInvitedPeople[i];
         guestsHTML += '<li class="list-group-item invited-guest">' + closeButton + makeAvatar(person) + '<p>' + person + '</p>' + '</li>';
     }
     $('#invited-guests-list').html(guestsHTML);
@@ -65,7 +74,7 @@ function updateInvitedGuests(){
 function resultClicked(e){
 	e.preventDefault();
     var person = $(this).text();
-    invitedPeople.push(person);
+    tmpInvitedPeople.push(person);
     $('#inputNameSearch')[0].value = '';
     updateInvitedGuests();
 }
@@ -76,11 +85,12 @@ function makeAvatar(name){
 
 function removePerson(){
     var name = $(this).closest('li').children('p').text();
-    invitedPeople.splice(invitedPeople.indexOf(name), 1);
+    tmpInvitedPeople.splice(tmpInvitedPeople.indexOf(name), 1);
     updateInvitedGuests();
 }
 
 function updateAvatarList(){
+    invitedPeople = Array.from(tmpInvitedPeople);
     if(invitedPeople.length > 0){
         var avatarsHTML = ''
         for(var i=0; i < invitedPeople.length; i++){
