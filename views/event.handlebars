@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Bringit! - {{title}}</title>
+	<title>Bringit! - {{event.title}}</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -13,18 +13,18 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/event-jq.js"></script>
 
-  <div id="eventData" data-event="{{jsonify this}}" data-items="{{jsonify (getItemsForEvent this)}}" data-users="{{jsonify (getUsersForEvent this)}}"></div>
+  <div id="eventData" data-event="{{jsonify event}}" data-items="{{jsonify items}}" data-users="{{jsonify users}}"></div>
 </head>
 <body>
     <div class="container toolbar">
         <div class="toolbar-back"><a alt="back" href="/index"><i class="material-icons">arrow_back</i></a></div>
-        <div class="toolbar-title"><h2 class="page-title">{{title}}</h2></div>
+        <div class="toolbar-title"><h2 class="page-title">{{event.title}}</h2></div>
         <div class="toolbar-btn"><a alt="point totals" href="/points"><i class="material-icons">people_alt</i></a></div>
         <div class="toolbar-btn"><a alt="event settings" href="/event-settings"><i class="material-icons">settings</i></a></div>
     </div>
 
 <div id="items-list">
-    {{#each categories}}
+    {{#each event.categories}}
     <div class="card item-category">
     <div class="card-header" id="headingOne">
         <p class="h3">{{@key}}</p>
