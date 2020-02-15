@@ -1,0 +1,14 @@
+{
+    "0": {
+        "id": "0",
+        "title": "Andrew's Thanksgiving",
+        "date": "11/21/2020",
+        "type": "Dinner Party",
+        "owner": "happycamper33",
+        "guests": ["gassa99", "Jmoney64", "duckBill26", "smitty47"],
+        "categories": {
+            "Foods: Entrees": [],
+            "Drinks": []
+        }
+    }
+}
