@@ -1,0 +1,52 @@
+.toolbar{
+  display: inline;
+}
+.toolbar .toolbar-back{
+  float: left;
+  padding-left: 20px;
+}
+.toolbar .toolbar-title{
+  float: left;
+  padding-left: 20px;
+  max-width: 60%;
+}
+.toolbar .toolbar-btn{
+  float: right;
+  padding-right: 20px;
+}
+
+.page-title{
+  margin-top: 0px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid #dddddd;
+  }
+  
+  td, th {
+    
+    text-align: left;
+    padding: 8px;
+  }
+  
+  .table-line:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+  .points-cell{
+    padding-right: 50px;
+  }
+
+  .avatarP{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(76, 212, 190);
+    text-align: center;
+    height: 40px;
+    width: 40px;
+    margin-right: 40px;
+}

@@ -1,0 +1,32 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<title>Points</title>
+	<link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link href="css/points.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="js/bootstrap.js"></script>
+</head>
+
+<body>
+    <div class="container toolbar">
+        <div class="toolbar-back"><a alt="back" href="/event"><i class="material-icons">arrow_back</i></a></div>
+        <div class="toolbar-title"><h2 class="page-title">Points Totals</h2></div>
+    </div>
+
+    <table>
+	    {{#each people}}
+            <tr class="table-line">
+                <td><div class="avatarP">{{getFirstLetter this.Name}}</div>{{Name}}</td>
+                <td class="points-cell">{{Points}}pts</td>
+            </tr>
+	    {{/each}}
+    </table>
+    <hr>
+    <h3 class = text-center>Total points: 73</h3>
+</body>
+</html>

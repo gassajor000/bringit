@@ -14,6 +14,9 @@ function initializePage(){
         claimClicked = false;
     });
     $('#detailsModal').on('show.bs.modal', openDetailsModal);
+    $('#add-category-field').hide();
+    $('#submit-category-btn').click(submitCategory);
+    $('#add-category-btn').click(addCategory);
 }
 
 function openClaimModal(event) {
@@ -69,4 +72,13 @@ function openClaimModal(event) {
 
 function makeAvatar(name){
     return "<div class=\"avatar\">" + name[0].toUpperCase() + "</div>";
+}
+
+function addCategory(){
+    $('#add-category-field').show();
+    $('#add-category-btn').hide();
+}
+function submitCategory(){
+    $('#add-category-field').hide();
+    $('#add-category-btn').show();
 }

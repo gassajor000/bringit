@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container toolbar">
-        <div class="toolbar-back"><a alt="back" href="/"><i class="material-icons">arrow_back</i></a></div>
+        <div class="toolbar-back"><a alt="back" href="/index"><i class="material-icons">arrow_back</i></a></div>
         <div class="toolbar-title"><h2 class="page-title">{{title}}</h2></div>
         <div class="toolbar-btn"><a alt="point totals" href="/points"><i class="material-icons">people_alt</i></a></div>
         <div class="toolbar-btn"><a alt="event settings" href="/event-settings"><i class="material-icons">settings</i></a></div>
@@ -59,6 +59,20 @@
     </div>
   </div>
   {{/each}}
+  <div class="add-category-container">
+    <div id="add-category-btn-container">
+      <button type="button" class="btn btn-primary" aria-label="Add Category" id="add-category-btn"><i class="material-icons">add</i> <p>Category</p></button>
+    </div>
+     
+     <div class="input-group" id="add-category-field">
+        <input type="text" class="form-control" placeholder="Category Name" aria-label="Category Name" aria-describedby="button-addon2">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button" id="submit-category-btn">Add</button>
+        </span>
+     </div>
+  </div>
+  
+
 </div>
 
 {{!-- Modals --}}
@@ -81,7 +95,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Claim</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Claim</button>
       </div>
     </div>
   </div>
@@ -159,7 +173,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Create</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Create</button>
       </div>
     </div>
   </div>

@@ -209,9 +209,11 @@ textarea {
   vertical-align: top;
 }
 
-table {
+table, th, td {
   border-collapse: collapse;
   border-spacing: 0;
+  width: 100%;
+  padding: 10px;
 }
 
 @media print {
@@ -1640,7 +1642,7 @@ table {
 }
 
 th {
-  text-align: left;
+  text-align: center;
 }
 
 .table {

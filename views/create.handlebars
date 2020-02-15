@@ -1,0 +1,103 @@
+<html>
+<head>
+	<title>Bringit! - Create Event</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link href="css/create.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/create-jq.js"></script>
+</head>
+<body>
+    <div class="container toolbar">
+        <div class="toolbar-back"><a alt="back" href="/index"><i class="material-icons">arrow_back</i></a></div>
+        <div class="toolbar-title"><h2 class="page-title">New Event</h2></div>
+        <div class="toolbar-btn"><a alt="save event" href="/index"><i class="material-icons">save</i></a></div>
+    </div>  
+
+    <div class="container">
+        <form class="form-horizontal" id="event-form">
+            <div class="form-group">
+            <label for="inputName" class="col-sm-2 control-label">Event Name</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputName" placeholder="Anna's Sweet 16">
+            </div>
+            </div>
+            <div class="form-group">
+            <label for="inputEventType" class="col-sm-2 control-label">Event Type</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputEventType" placeholder="Birthday Party">
+            </div>
+            </div>
+            <div class="form-group">
+            <label for="inputDate" class="col-sm-2 control-label">Date</label>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" id="inputDate" placeholder="12/16/19">
+                <div class="alert alert-danger" role="alert" id="invalid-date-alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    Enter a valid date in the from mm/dd/yy
+                    </div>
+            </div>
+            </div>
+            
+        </form>
+
+    {{!--TODO: Items and categories  --}}
+        <div class="well">
+            Items go here
+            {{!-- Insert guests as they are added --}}
+        </div>
+
+        <label for="peopleContainer" class="col-sm-2 form-aligned">People</label>
+        <div class="well" id="peopleContainer">
+            {{!-- Insert guests as they are added --}}
+            Guests will appear here when you add them
+        </div>
+
+        <div class='btn-container'>
+            <button id='invite-btn' type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGuestsModal" aria-label="Add People"><i class="material-icons">group_add</i>Invite People</button>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="addGuestsModal" tabindex="-1" role="dialog" aria-labelledby="addGuestsLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="addGuestsLabel">Add People</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="input-group mb-3">
+                    <div class="input-group-addon">
+                        <span class="input-group-text" id="search-addon"><i class="material-icons">search</i></span>
+                    </div>
+                    <div class="dropdown">
+                        <input type="text" class="form-control" placeholder="Search for a name" data-toggle="dropdown" aria-label="Search" aria-describedby="search-addon" id="inputNameSearch">
+                        <ul class="dropdown-menu" id='search-results'>
+                            {{!-- Search Results go here --}}
+                        </ul>
+                    </div>
+                </div>
+
+                <ul class="list-group" id="invited-guests-list">
+                    {{!-- Insert guests as they are added --}}
+                </ul>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" id="invite-submit-btn">Invite</button>
+            </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -52,3 +52,27 @@
 .well{
     background-image: none;
 }
+
+#add-category-btn{
+    display: flex;
+    align-items: center;
+}
+
+#add-category-btn p {
+    margin: 0;
+}
+
+#add-category-btn-container{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 80px;
+}
+
+#add-category-field{
+    width: 70%;
+    margin-left: 20px;
+}
+
+.add-category-container{
+    margin-top: 15px;
+}
