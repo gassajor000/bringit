@@ -2,7 +2,9 @@
 /*
  * GET event list page.
  */
-event = require('../mock-event.json');
+dbManager = require('../db-manager');
+db = new dbManager();
+event = db.getEvent('0');
 const Handlebars = require('handlebars');
 
 exports.view = function(req, res){

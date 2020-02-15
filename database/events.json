@@ -10,5 +10,17 @@
             "Foods: Entrees": [],
             "Drinks": []
         }
+    },
+    "1": {
+        "id": "1",
+        "title": "Christmas Party",
+        "date": "12/19/2020",
+        "type": "Holliday Party",
+        "owner": "happycamper33",
+        "guests": ["gassa99", "Jmoney64", "stephCur22"],
+        "categories": {
+            "Foods: Entrees": [],
+            "Drinks": []
+        }
     }
 }

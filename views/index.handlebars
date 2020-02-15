@@ -17,9 +17,9 @@
 	{{#each events}}
 		<div class="event"> 
 			<a href="/event">
-			<h3>{{event-title}}</h3><span><h3>{{Date}}</h3></span>
+			<h3>{{title}}</h3><span><h3>{{date}}</h3></span>
 			<p class="text-left">
-				{{Hosts}}
+				{{#each guests}}{{getUserFullName this}}, {{/each}}
 			</p>
 			</a>
 			
