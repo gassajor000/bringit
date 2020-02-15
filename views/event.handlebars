@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Bringit! - Event Title</title>
+	<title>Bringit! - {{title}}</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -25,7 +25,7 @@
     {{#each categories}}
     <div class="card item-category">
     <div class="card-header" id="headingOne">
-        <p class="h3">{{category-name}}</p>
+        <p class="h3">{{@key}}</p>
       {{!-- <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           Collapsible Group Item #1
@@ -38,18 +38,20 @@
 
           <table class="table">
             <tbody>
-                {{#each items}}
+                {{#listItems this}}
                 <tr data-toggle="modal" data-target="#detailsModal" data-item="{{jsonify this}}">
-                <td class="item-cell">{{item-name}}</td>
+                <td class="item-cell">{{name}}</td>
                 <td class="item-cell">x{{quantity}}</td>
                 <td class="item-cell">{{points}}pts</td>
-                <td class="item-cell">{{#if claimed-by}}
-                    {{#each claimed-by}}
-                    <div class="avatar">{{getFirstLetter this.name}}</div>
+                <td class="item-cell">{{#if (emptyDict claimedBy)}}
+                    <button type="button" class="btn btn-primary claim-btn" data-toggle="modal" data-target="#claimModal" data-item-name="{{name}}" data-quantity="{{quantity}}">Claim</button>
+                    {{else}}
+                    {{#each claimedBy}}
+                    <div class="avatar">{{getUserFirstLetter @key}}</div>
                     {{/each}}
-                    {{else}}<button type="button" class="btn btn-primary claim-btn" data-toggle="modal" data-target="#claimModal" data-item-name="{{item-name}}" data-quantity="{{quantity}}">Claim</button>{{/if}}</td>
+                    {{/if}}</td>
                 </tr>
-                {{/each}}
+                {{/listItems}}
             </tbody>
             </table>
 
