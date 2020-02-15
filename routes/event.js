@@ -2,9 +2,8 @@
 /*
  * GET event list page.
  */
-dbManager = require('../db-manager');
-db = new dbManager();
-event = db.getEvent('0');
+var dbManager = require('../db-manager');
+var db = new dbManager();
 const Handlebars = require('handlebars');
 
 exports.view = function(req, res){

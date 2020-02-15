@@ -2,8 +2,8 @@
 /*
  * GET home page.
  */
-dbManager = require('../db-manager');
-db = new dbManager();
+var dbManager = require('../db-manager');
+var db = new dbManager();
 const Handlebars = require('handlebars');
 
 exports.view = function(req, res){
