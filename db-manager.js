@@ -1,13 +1,13 @@
-users = require('./database/users.json');
-events = require('./database/events.json');
-items = require('./database/items.json');
+initUsers = require('./database/users.json');
+initEvents = require('./database/events.json');
+initItems = require('./database/items.json');
 
 class DatabaseManager {
     constructor(){
         if (!DatabaseManager.initialized){
-            DatabaseManager.users = users;
-            DatabaseManager.events = events;
-            DatabaseManager.items = items;
+            DatabaseManager.users = initUsers;
+            DatabaseManager.events = initEvents;
+            DatabaseManager.items = initItems;
             DatabaseManager.initialized = true;
         }
     }
@@ -33,14 +33,27 @@ class DatabaseManager {
     
     getItemsForEvent(eventId){
         var event = DatabaseManager.events[eventId];
-        var items = [];
-        for(const category in Object.values(event.categories)){
-            for(const itemId in category){
-                items.push(DatabaseManager.items[itemId]);
-            }
+        var retItems = {};
+        for(var category in event.categories){
+            event.categories[category].forEach(itemId => {
+                retItems[itemId] =  DatabaseManager.items[itemId];
+            });
         }
 
-        return items;
+        return retItems;
+    }
+    
+    getUsersForEvent(eventId){
+        var event = DatabaseManager.events[eventId];
+        var retUsers = {};
+        event.guests.forEach(username => {
+            retUsers[username] =  DatabaseManager.users[username];
+        });
+
+        // Add host too
+        retUsers[event.owner] = DatabaseManager.users[event.owner];
+
+        return retUsers;
     }
 
     /*Modifiers*/

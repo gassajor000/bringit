@@ -12,6 +12,8 @@
     <script src="https://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
 	<script src="js/event-jq.js"></script>
+
+  <div id="eventData" data-event="{{jsonify this}}" data-items="{{jsonify (getItemsForEvent this)}}" data-users="{{jsonify (getUsersForEvent this)}}"></div>
 </head>
 <body>
     <div class="container toolbar">
@@ -39,12 +41,12 @@
           <table class="table">
             <tbody>
                 {{#listItems this}}
-                <tr data-toggle="modal" data-target="#detailsModal" data-item="{{jsonify this}}">
+                <tr data-toggle="modal" data-target="#detailsModal" data-item="{{id}}">
                 <td class="item-cell">{{name}}</td>
                 <td class="item-cell">x{{quantity}}</td>
                 <td class="item-cell">{{points}}pts</td>
                 <td class="item-cell">{{#if (emptyDict claimedBy)}}
-                    <button type="button" class="btn btn-primary claim-btn" data-toggle="modal" data-target="#claimModal" data-item-name="{{name}}" data-quantity="{{quantity}}">Claim</button>
+                    <button type="button" class="btn btn-primary claim-btn" data-toggle="modal" data-target="#claimModal" data-itemid="{{id}}">Claim</button>
                     {{else}}
                     {{#each claimedBy}}
                     <div class="avatar">{{getUserFirstLetter @key}}</div>
