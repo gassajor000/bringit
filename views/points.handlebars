@@ -19,14 +19,14 @@
     </div>
 
     <table>
-	    {{#each people}}
+	    {{#each points}}
             <tr class="table-line">
-                <td><div class="avatarP">{{getFirstLetter this.Name}}</div>{{Name}}</td>
-                <td class="points-cell">{{Points}}pts</td>
+                <td><div class="avatarP">{{getFirstLetter this.name}}</div>{{name}}</td>
+                <td class="points-cell">{{points}}pts</td>
             </tr>
 	    {{/each}}
     </table>
     <hr>
-    <h3 class = text-center>Total points: 73</h3>
+    <h3 class = text-center>Total points: {{total}}</h3>
 </body>
 </html>

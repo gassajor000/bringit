@@ -76,3 +76,10 @@
 .add-category-container{
     margin-top: 15px;
 }
+
+.table td{
+    width: fit-content;
+}
+.center-cell{
+    text-align: center;
+}

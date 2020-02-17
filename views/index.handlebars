@@ -7,7 +7,7 @@
 	<link href="css/bootstrap.css" rel="stylesheet">
 	<link href="css/bootstrap.min.css" rel="stylesheet">
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
-	<link href="css/bootstrap-thime.min.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 	<link href="css/index.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -22,20 +22,19 @@
 	<div class="event card">
 		<table> 
 			<tr>
-				<th><h3 class="event-title">{{event-title}}</h3></th>
-				<th><h6>{{Date}}</h6></th>
+				<th><h3 class="event-title">{{title}}</h3></th>
+				<th><h6>{{date}}</h6></th>
 			</tr>
 
 			<tr>
-				<td><h6>{{Hosts}}</h6></td>		
+				<td><h6>{{#each guests}}{{getUserFullName this}}, {{/each}}</h6></td>		
 			</tr>
 			
 		</table>
 	</div>
 	</a>
-		<hr>
 	{{/each}}
 
-	<div class="text-center add-btn"><a alt="add" href="/create"><i class="material-icons">add</i></a></div>
+	<div id="add-btn-container"><button class="text-center btn btn-primary" id="add-btn"><a alt="add" href="/create"><i class="material-icons">add</i> Event</a></button></div>
 </body>
 </html>
