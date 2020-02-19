@@ -72,7 +72,9 @@ function initSelectPeopleModal(allPeople, guestsChangedCallback){
     });
 
     $('#invite-submit-btn').click(function(){
-        g_guestsChangedCallback(tmpInvitedPeople);
+        if(g_guestsChangedCallback !== null){
+            g_guestsChangedCallback(tmpInvitedPeople);
+        }
         $('#addGuestsModal').modal('hide');
     });
 }
