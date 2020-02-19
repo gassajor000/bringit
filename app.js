@@ -13,6 +13,7 @@ var event = require('./routes/event');
 var points = require('./routes/points');
 var login = require('./routes/login')
 var create = require('./routes/create');
+var edit = require('./routes/edit');
 
 // Example route
 // var user = require('./routes/user');
@@ -45,6 +46,7 @@ app.get('/', login.view);
 app.get('/event', event.view);
 app.get('/points', points.view);
 app.get('/create', create.view);
+app.get('/edit', edit.view);
 
 // Example route
 // app.get('/users', user.list);
