@@ -14,3 +14,7 @@ exports.view = function(req, res){
 Handlebars.registerHelper("getUserFullName", function(username) {
   return db.getUser(username).name;
 });
+
+Handlebars.registerHelper("formatDate", function(date) {
+  return new Date(date).toLocaleDateString("en-US");
+});
