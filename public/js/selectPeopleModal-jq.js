@@ -1,35 +1,7 @@
 'use strict';
 
-// Call this function when the page loads (the "ready" event)
-$(document).ready(function() {
-	initializePage();
-})
-
-
-function initializePage(){
-    $('#inputNameSearch').on('input', updateSearchResults);
-    $('#inputNameSearch').on('change', function(){
-        $('#inputNameSearch')[0].value = '';
-    });
-    // $('#addGuestsModal').on('hide.bs.modal', updateAvatarList);
-    $('#addGuestsModal').on('show.bs.modal', function(){
-        tmpInvitedPeople = Array.from(g_invitedPeople);
-        updateInvitedGuests();
-    });
-    $('#invite-submit-btn').click(function(){
-        updateAvatarList();
-        $('#addGuestsModal').modal('hide');
-    });
-
-}
-
-var g_allPeople = [
-    'Jason Lin', 
-    'Jordan Gassaway',
-    'Andrew Camp',
-    'Bill Gonzalez',
-    'Bill Smith'
-];
+var g_allPeople = [];
+var g_guestsChangedCallback = null;
 
 var g_invitedPeople = [];
 var tmpInvitedPeople = [];
@@ -78,26 +50,36 @@ function resultClicked(e){
     updateInvitedGuests();
 }
 
-function makeAvatar(name){
-    return "<div class=\"avatar\">" + name[0].toUpperCase() + "</div>";
-}
-
 function removePerson(){
     var name = $(this).closest('li').children('p').text();
     tmpInvitedPeople.splice(tmpInvitedPeople.indexOf(name), 1);
     updateInvitedGuests();
 }
 
-function updateAvatarList(){
-    g_invitedPeople = Array.from(tmpInvitedPeople);
-    if(g_invitedPeople.length > 0){
-        var avatarsHTML = ''
-        for(var i=0; i < g_invitedPeople.length; i++){
-            var person = g_invitedPeople[i];
-            avatarsHTML += makeAvatar(person);
-        }
-        $('#peopleContainer').html(avatarsHTML);
-    } else{
-        $('#peopleContainer').text('Guests will appear here when you add them');
-    }
+
+/* Initializes the modal
+ * allPeople: array of names of all friends
+ * guestsChangedCallback: callback function for when the modal closes and the guest list was changed. 
+ *                          Accepts an updated array of invited people. 
+*/
+function initSelectPeopleModal(allPeople, guestsChangedCallback){
+    g_allPeople = allPeople;
+    g_guestsChangedCallback = guestsChangedCallback;
+
+    $('#inputNameSearch').on('input', updateSearchResults);
+    $('#inputNameSearch').on('change', function(){
+        $('#inputNameSearch')[0].value = '';
+    });
+
+    $('#invite-submit-btn').click(function(){
+        g_guestsChangedCallback(tmpInvitedPeople);
+        $('#addGuestsModal').modal('hide');
+    });
+}
+/* Opens the modal
+ * invitedPeople: array of names of people currently invited
+*/
+function openSelectPeopleModalHandler(invitedPeople){
+    tmpInvitedPeople = Array.from(invitedPeople);
+    updateInvitedGuests();
 }

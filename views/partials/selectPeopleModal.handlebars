@@ -1,0 +1,35 @@
+	<script src="js/selectPeopleModal-jq.js"></script>
+
+<div class="modal fade" id="addGuestsModal" tabindex="-1" role="dialog" aria-labelledby="addGuestsLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="addGuestsLabel">Add People</h4>
+        </div>
+        <div class="modal-body">
+
+            <div class="input-group mb-3">
+                <div class="input-group-addon">
+                    <span class="input-group-text" id="search-addon"><i class="material-icons">search</i></span>
+                </div>
+                <div class="dropdown">
+                    <input type="text" class="form-control" placeholder="Search for a name" data-toggle="dropdown" aria-label="Search" aria-describedby="search-addon" id="inputNameSearch">
+                    <ul class="dropdown-menu" id='search-results'>
+                        {{!-- Search Results go here --}}
+                    </ul>
+                </div>
+            </div>
+
+            <ul class="list-group" id="invited-guests-list">
+                {{!-- Insert guests as they are added --}}
+            </ul>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="invite-submit-btn">Invite</button>
+        </div>
+        </div>
+    </div>
+</div>
