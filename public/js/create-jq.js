@@ -16,7 +16,6 @@ function initializePage(){
         tmpInvitedPeople = Array.from(invitedPeople);
         updateInvitedGuests();
     });
-    $('#inputDate').on('change', validateDate);
     $('#invite-submit-btn').click(function(){
         updateAvatarList();
         $('#addGuestsModal').modal('hide');
@@ -100,15 +99,5 @@ function updateAvatarList(){
         $('#peopleContainer').html(avatarsHTML);
     } else{
         $('#peopleContainer').text('Guests will appear here when you add them');
-    }
-}
-
-function validateDate(){
-    var dateField = $('#inputDate');
-    var pattern = "(0[1-9]|1[012])[/](0[1-9]|[12][0-9]|3[01])[/]\\d\\d";
-    if(dateField[0].value.match(pattern)){
-        $('#invalid-date-alert').hide();
-    } else {
-        $('#invalid-date-alert').show();
     }
 }
