@@ -59,25 +59,45 @@ class DatabaseManager {
     /*Modifiers*/
     addItem(name, description, quantity, points){
         /*Add event item*/
+        
+        DatabaseManager.items.push({
+            id: Date.now(),
+            name: name,
+            description: description,
+            quantity: quantity,
+            points: points,
+            claimedBy: {}
+        })
+        
     }
 
     removeItem(itemId){
         /*Remove an item*/
-
+        delete DatabaseManager.items[itemId]
     }
 
     updateItem(item){
         /*Update an item*/
 
+
     }
 
     addEvent(title, date, type, owner, guests, categories){
         /*Create an event*/
+        DatabaseManager.event.push({
+            id: Date.now(),
+            title: title,
+            date: date,
+            type: type,
+            owner: owner,
+            guests: guests,
+            categories: catagories
+        })
     }
 
     removeEvent(eventId){
         /*Remove an event*/
-
+        delete DatabaseManager.events[eventId];
     }
 
     updateEvent(event){
@@ -87,10 +107,16 @@ class DatabaseManager {
 
     addUser(name, username, password){
         /*Create an event*/
+        DatabaseManager.users.push({
+            username: username,
+            name: name,
+            password: password
+        })
     }
 
     removeUser(username){
         /*Remove an event*/
+        delete DatabaseManager.users[username];
 
     }
 
