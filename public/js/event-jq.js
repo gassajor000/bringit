@@ -16,6 +16,7 @@ function initializePage(){
         claimClicked = false;
     });
     $('#detailsModal').on('show.bs.modal', openDetailsModal);
+    $('#newItemModal').on('show.bs.modal', openAddItemModal);
     $('#add-category-field').hide();
     $('#submit-category-btn').click(submitCategory);
     $('#add-category-btn').click(addCategory);
@@ -35,6 +36,14 @@ function openClaimModal(event) {
     var modal = $(this);
     modal.find('.modal-title').text('Claim ' + item.name);
     modal.find('#quantity-addon').text('x' + item.quantity);
+  }
+
+function openAddItemModal(event) {
+    claimClicked = true;
+    var button = $(event.relatedTarget); // Button that triggered the modal
+    var category = button.data('category'); // Extract category to add to
+    
+    $(this).data['category'] = category;
   }
 
   function openDetailsModal(event) {
@@ -89,6 +98,6 @@ function submitCategory(){
 }
 
 function addItem(){
-    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category:'x', eventId: eventData.id};
+    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category: $('#newItemModal').data.category, eventId: eventData.id};
     $.post('/additem', params);
 }
