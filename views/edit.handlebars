@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Bringit! - Create Event</title>
+	<title>Bringit! - Edit Event</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -11,13 +11,16 @@
 	<link href="css/create.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
 	<script src="js/bootstrap.js"></script>
-	<script src="js/create-jq.js"></script>
+	<script src="js/edit-jq.js"></script>
+
+  <div id="eventData" data-event="{{jsonify event}}" data-users="{{jsonify users}}"></div>
+
 </head>
 <body>
     <div class="container toolbar">
-        <div class="toolbar-back"><a alt="back" href="/index"><i class="material-icons">arrow_back</i></a></div>
-        <div class="toolbar-title"><h2 class="page-title">New Event</h2></div>
-        <div class="toolbar-btn"><a alt="save event" href="/index"><i class="material-icons">save</i></a></div>
+        <div class="toolbar-back"><a alt="back" href="/event"><i class="material-icons">arrow_back</i></a></div>
+        <div class="toolbar-title"><h2 class="page-title">Edit {{event.title}}</h2></div>
+        <div class="toolbar-btn"><a alt="save event" href="/event"><i class="material-icons">save</i></a></div>
     </div>  
 
     <div class="container">
@@ -25,29 +28,23 @@
             <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">Event Name</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputName" placeholder="Anna's Sweet 16">
+                <input type="text" class="form-control" value="{{event.title}}" id="inputName" placeholder="Anna's Sweet 16">
             </div>
             </div>
             <div class="form-group">
             <label for="inputEventType" class="col-sm-2 control-label">Event Type</label>
             <div class="col-sm-6">
-                <input type="text" class="form-control" id="inputEventType" placeholder="Birthday Party">
+                <input type="text" class="form-control" id="inputEventType" value="{{event.type}}" placeholder="Birthday Party">
             </div>
             </div>
             <div class="form-group">
             <label for="inputDate" class="col-sm-2 control-label">Date</label>
             <div class="col-sm-6">
-                <input type="date" class="form-control" id="inputDate">
+                <input type="date" class="form-control" id="inputDate" value="{{event.date}}">
             </div>
             </div>
             
         </form>
-
-    {{!--TODO: Items and categories  --}}
-        <div class="well">
-            Items go here
-            {{!-- Insert guests as they are added --}}
-        </div>
 
         <label for="peopleContainer" class="col-sm-2 form-aligned">People</label>
         <div class="well" id="peopleContainer">
@@ -60,7 +57,7 @@
         </div>
     </div>
 
-
     {{> selectPeopleModal}}
+
 </body>
 </html>

@@ -2,7 +2,7 @@
     "0": {
         "id": "0",
         "title": "Andrew's Thanksgiving",
-        "date": "11/21/2020",
+        "date": "2020-11-11",
         "type": "Dinner Party",
         "owner": "happycamper33",
         "guests": ["gassa99", "Jmoney64", "duckBill26", "smitty47"],
@@ -14,7 +14,7 @@
     "1": {
         "id": "1",
         "title": "Christmas Party",
-        "date": "12/19/2020",
+        "date": "2020-12-19",
         "type": "Holliday Party",
         "owner": "happycamper33",
         "guests": ["gassa99", "Jmoney64", "stephCur22"],
