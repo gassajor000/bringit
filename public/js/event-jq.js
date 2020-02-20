@@ -19,6 +19,7 @@ function initializePage(){
     $('#add-category-field').hide();
     $('#submit-category-btn').click(submitCategory);
     $('#add-category-btn').click(addCategory);
+    $('#addItemSubmitBtn').click(addItem);
 
     // Extract data
     eventData = $('#eventData').data('event');
@@ -85,4 +86,9 @@ function addCategory(){
 function submitCategory(){
     $('#add-category-field').hide();
     $('#add-category-btn').show();
+}
+
+function addItem(){
+    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category:'x', eventId: eventData.id};
+    $.post('/additem', params);
 }
