@@ -98,17 +98,23 @@ function submitCategory(){
     $('#add-category-field').hide();
     $('#add-category-btn').show();
     var params = {category: $('#add-category-input')[0].value, eventId: eventData.id};
-    $.post('/addcategory', params);
+    $.post('/addcategory', params, function() {
+        location.reload();
+    });
 }
 
 function claimItem(){
     var modal = $('#claimModal');
 
     var params = {itemId: modal.data('item').id, quantity:  modal.find('#quantityInput')[0].value}
-    $.post('/claimitem', params);
+    $.post('/claimitem', params, function(){
+        location.reload();
+    });
 }
 
 function addItem(){
-    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category: $('#newItemModal').data.category, eventId: eventData.id};
-    $.post('/additem', params);
+    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category: $('#newItemModal').data("category"), eventId: eventData.id};
+    $.post('/additem', params, function(){
+        location.reload();
+    });
 }
