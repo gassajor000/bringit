@@ -90,7 +90,6 @@ class DatabaseManager {
     updateItem(item){
         /*Update an item*/
 
-
     }
 
     claimItem(itemId, username, quantity){
@@ -104,15 +103,19 @@ class DatabaseManager {
 
     addEvent(title, date, type, owner, guests, categories){
         /*Create an event*/
-        DatabaseManager.event.push({
-            id: Date.now(),
-            title: title,
-            date: date,
-            type: type,
-            owner: owner,
-            guests: guests,
-            categories: catagories
-        })
+
+        var event = {
+            "id": Date.now(),
+            "title": title,
+            "date": date,
+            "type": type,
+            "owner": owner,
+            "guests": guests,
+            "categories": categories
+        }
+
+        DatabaseManager.events[event.id] = event;
+        
     }
 
     removeEvent(eventId){
@@ -147,11 +150,14 @@ class DatabaseManager {
 
     addUser(name, username, password){
         /*Create an event*/
-        DatabaseManager.users.push({
-            username: username,
-            name: name,
-            password: password
-        })
+
+        var user = {
+            "username": username,
+            "name": name,
+            "password": password
+        }
+
+        DatabaseManager.users[username] = user;
     }
 
     removeUser(username){
