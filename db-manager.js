@@ -111,7 +111,7 @@ class DatabaseManager {
             "type": type,
             "owner": owner,
             "guests": guests,
-            "categories": categories
+            "categories": {}
         }
 
         DatabaseManager.events[event.id] = event;
