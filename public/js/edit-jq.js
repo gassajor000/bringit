@@ -26,6 +26,7 @@ function initializePage(){
 
     invitedPeople = eventData.guests.map(guest => usersData[guest]);
     updateAvatarList();
+    $('#save-btn').click(updateEvent);
 }
 
 var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
@@ -50,4 +51,10 @@ function updateAvatarList(){
     } else{
         $('#peopleContainer').text('Guests will appear here when you add them');
     }
+}
+
+function updateEvent() {
+    var guest = invitedPeople.map(user => user.username);
+    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('#inputEventType')[0].value, guests:guest, eventId: eventData.id};
+    $.post('./updateevent', params);
 }

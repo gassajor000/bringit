@@ -51,6 +51,11 @@ class DatabaseManager {
     getUsersForEvent(eventId){
         var event = DatabaseManager.events[eventId];
         var retUsers = {};
+
+        if(!event.guests){
+            return retUsers;
+        }
+
         event.guests.forEach(username => {
             retUsers[username] =  DatabaseManager.users[username];
         });
@@ -118,9 +123,29 @@ class DatabaseManager {
         delete DatabaseManager.events[eventId];
     }
 
-    updateEvent(event){
-        /*Update an event*/
+    updateEvent(title, date, type, guests, eventId){
+        var oldGuests = this.getUsersForEvent(eventId);
+        var event = DatabaseManager.events[eventId];
 
+        var removedGuests = Object.values(oldGuests).filter(g => !guests.includes(g.username) && g.username != event.owner);
+
+        // If any users were removed, remove them from all the items they had claimed.
+        if(removedGuests.length > 0){
+            var items = this.getItemsForEvent(eventId);
+            removedGuests.forEach(rGuest =>{
+                for(var itemId in items){
+                    if(rGuest.username in items[itemId].claimedBy){
+                        delete DatabaseManager.items[itemId].claimedBy[rGuest.username];
+                    }
+                }
+            });
+        }
+
+        /*Update an event*/
+        DatabaseManager.events[eventId].title = title;
+        DatabaseManager.events[eventId].date = date;
+        DatabaseManager.events[eventId].type = type;
+        DatabaseManager.events[eventId].guests = guests;
     }
 
     addUser(name, username, password){
@@ -145,6 +170,16 @@ class DatabaseManager {
         /*Update an event*/
 
     }
+
+    addCategory(category, eventId) {
+        DatabaseManager.events[eventId].categories[category] = [];
+    }
+
+    removeCategory(category) {
+        delete DatabaseManager.events[eventId].categories[category];
+    }
+
+    
     
 }
 

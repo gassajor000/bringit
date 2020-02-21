@@ -23,5 +23,5 @@ Handlebars.registerHelper("getUserFullName", function(username) {
 });
 
 Handlebars.registerHelper("formatDate", function(date) {
-  return new Date(date).toLocaleDateString("en-US");
+  return new Date(date + "GMT-08").toLocaleDateString("en-US");
 });
