@@ -51,6 +51,9 @@ function onGuestsChange(newInviteList){
 }
 
 function addEvent () {
-    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('inputEventType')[0].value, }
-
+    
+    var guest = [];
+    var category = [];
+    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('#inputEventType')[0].value, guests:guest, categories:category};
+    $.post('/createEvent', params);
 }
