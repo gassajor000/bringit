@@ -1,9 +1,8 @@
 'use strict';
 
-var g_allPeople = [];
+var g_allPeople = {};
 var g_guestsChangedCallback = null;
 
-var g_invitedPeople = [];
 var tmpInvitedPeople = [];
 var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
 
@@ -11,18 +10,13 @@ function updateSearchResults(){
     var subs = $('#inputNameSearch')[0].value.toLowerCase();
     var results = []
 
-    for(var i=0; i < g_allPeople.length; i++){
-        var person = g_allPeople[i];
-        if (person.toLowerCase().search(subs) != -1){
-            results.push(person);
-        }
-    }
+    results = Object.values(g_allPeople).filter(user => user.name.toLowerCase().search(subs) != -1);
 
     if (results.length > 0){
         var resultsHTML = ''
         for(var i=0; i < results.length; i++){
-            var person = results[i];
-            resultsHTML += '<li class="dropdown-item search-result"><a href="#">' +  person + '</a></li>';
+            var user = results[i];
+            resultsHTML += '<li class="dropdown-item search-result" data-user=\''+ JSON.stringify(user) + '\'><a href="#">' +  user.name + '</a></li>';
         }
         $('#search-results').html(resultsHTML);
         $('.search-result').click(resultClicked);
@@ -36,7 +30,7 @@ function updateInvitedGuests(){
     var guestsHTML = ''
     for(var i=0; i < tmpInvitedPeople.length; i++){
         var person = tmpInvitedPeople[i];
-        guestsHTML += '<li class="list-group-item invited-guest">' + closeButton + makeAvatar(person) + '<p>' + person + '</p>' + '</li>';
+        guestsHTML += '<li class="list-group-item invited-guest" data-user=\''+ JSON.stringify(person) + '\'>' + closeButton + makeAvatar(person.name) + '<p>' + person.name + '</p>' + '</li>';
     }
     $('#invited-guests-list').html(guestsHTML);
     $('.rem-person-btn').click(removePerson);
@@ -44,15 +38,15 @@ function updateInvitedGuests(){
 
 function resultClicked(e){
 	e.preventDefault();
-    var person = $(this).text();
-    tmpInvitedPeople.push(person);
+    var user = $(this).data('user');
+    tmpInvitedPeople.push(user);
     $('#inputNameSearch')[0].value = '';
     updateInvitedGuests();
 }
 
 function removePerson(){
-    var name = $(this).closest('li').children('p').text();
-    tmpInvitedPeople.splice(tmpInvitedPeople.indexOf(name), 1);
+    var user = $(this).closest('li').data('user');
+    tmpInvitedPeople.splice(tmpInvitedPeople.map(u => u.name).indexOf(user.name), 1);
     updateInvitedGuests();
 }
 
