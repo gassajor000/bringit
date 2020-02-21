@@ -7,21 +7,16 @@ $(document).ready(function() {
 
 
 function initializePage(){
-    initSelectPeopleModal(allPeople, onGuestsChange);
-
     $('#addGuestsModal').on('show.bs.modal', function(){
         openSelectPeopleModalHandler(invitedPeople);
     });
 
+    allPeople = $('#eventData').data('allpeople');
+
+    initSelectPeopleModal(allPeople, onGuestsChange);
 }
 
-var allPeople = [
-    'Jason Lin', 
-    'Jordan Gassaway',
-    'Andrew Camp',
-    'Bill Gonzalez',
-    'Bill Smith'
-];
+var allPeople = [];
 
 var invitedPeople = [];
 var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
@@ -35,7 +30,7 @@ function updateAvatarList(){
         var avatarsHTML = ''
         for(var i=0; i < invitedPeople.length; i++){
             var person = invitedPeople[i];
-            avatarsHTML += makeAvatar(person);
+            avatarsHTML += makeAvatar(person.name);
         }
         $('#peopleContainer').html(avatarsHTML);
     } else{
