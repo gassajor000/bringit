@@ -33,7 +33,13 @@ ul.list li input{
 }
 
 ul.list li input[type="button"]{
-    background-color:#4690fb;
+    background-color:#46fb5e;
+    color: #fff;
+    width: 100%;
+}
+
+#sub {
+    background-color:#468efb;
     color: #fff;
     width: 100%;
 }

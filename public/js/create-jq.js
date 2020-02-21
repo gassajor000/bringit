@@ -11,6 +11,8 @@ function initializePage(){
         openSelectPeopleModalHandler(invitedPeople);
     });
 
+    $('#save-btn').click(addEvent);
+
     allPeople = $('#eventData').data('allpeople');
 
     initSelectPeopleModal(allPeople, onGuestsChange);
@@ -41,4 +43,11 @@ function updateAvatarList(){
 function onGuestsChange(newInviteList){
     invitedPeople = Array.from(newInviteList);
     updateAvatarList();
+}
+
+function addEvent () {
+    var guest = invitedPeople.map(user => user.username);
+    var category = [];
+    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('#inputEventType')[0].value, guests:guest, categories:category};
+    $.post('/createEvent', params);
 }
