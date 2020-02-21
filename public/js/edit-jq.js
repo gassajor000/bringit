@@ -10,17 +10,9 @@ var eventData = {};
 
 var invitedPeople = [];
 
-var allPeople = [
-    'Jason Lin', 
-    'Jordan Gassaway',
-    'Andrew Camp',
-    'Bill Gonzalez',
-    'Bill Smith'
-];
+var allPeople = {};
 
 function initializePage(){
-    initSelectPeopleModal(allPeople, onGuestsChange);
-
     $('#addGuestsModal').on('show.bs.modal', function(){
         openSelectPeopleModalHandler(invitedPeople);
     });
@@ -28,11 +20,14 @@ function initializePage(){
     // Extract data
     eventData = $('#eventData').data('event');
     usersData = $('#eventData').data('users');
-    invitedPeople = eventData.guests.map(guest => usersData[guest].name);
+    allPeople = $('#eventData').data('allpeople');
+
+    initSelectPeopleModal(allPeople, onGuestsChange);
+
+    invitedPeople = eventData.guests.map(guest => usersData[guest]);
     updateAvatarList();
 }
 
-var invitedPeople = [];
 var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
 
 function makeAvatar(name){
@@ -49,7 +44,7 @@ function updateAvatarList(){
         var avatarsHTML = ''
         for(var i=0; i < invitedPeople.length; i++){
             var person = invitedPeople[i];
-            avatarsHTML += makeAvatar(person);
+            avatarsHTML += makeAvatar(person.name);
         }
         $('#peopleContainer').html(avatarsHTML);
     } else{
