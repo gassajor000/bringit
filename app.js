@@ -51,6 +51,7 @@ app.get('/edit', edit.view);
 
 app.post('/additem', item.add);
 app.post('/claimitem', item.claim);
+app.post('/login', login.login);
 // Example route
 // app.get('/users', user.list);
 
