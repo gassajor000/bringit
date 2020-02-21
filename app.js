@@ -51,13 +51,10 @@ app.get('/create', create.view);
 app.get('/edit', edit.view);
 
 app.post('/additem', item.add);
-<<<<<<< HEAD
 app.post('/addcategory', category.add);
 app.post('/updateevent', edit.update);
-=======
 app.post('/claimitem', item.claim);
 app.post('/login', login.login);
->>>>>>> master
 // Example route
 // app.get('/users', user.list);
 
