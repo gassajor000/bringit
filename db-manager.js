@@ -82,6 +82,15 @@ class DatabaseManager {
 
     }
 
+    claimItem(itemId, username, quantity){
+        /* Assign user as bringing an item*/
+        if(quantity === 0){
+            delete DatabaseManager.items[itemId].claimedBy[username]; 
+        } else {
+            DatabaseManager.items[itemId].claimedBy[username] =  quantity; 
+        }
+    }
+
     addEvent(title, date, type, owner, guests, categories){
         /*Create an event*/
 
