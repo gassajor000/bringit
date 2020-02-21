@@ -2,12 +2,12 @@ var dbManager = require('../db-manager');
 var db = new dbManager();
 
 exports.view = function(req, res){
-  var event = db.getEvent('0');
+  var event = db.getEvent(req.query.id);
   var users = db.getUsersForEvent(event.id);
   var items = db.getItemsForEvent(event.id);
   var points = addPoints(items);
   
-  pointsData = {'points':[], 'total': totalPoints(points)};
+  pointsData = {'points':[], 'total': totalPoints(points), 'event':event};
   for(user in points){
     pointsData.points.push({'name': users[user].name, 'points': points[user]});
   }
@@ -32,5 +32,5 @@ function addPoints(items){
 }
 
 function totalPoints(points){
-  return Object.values(points).reduce((tot, val) => tot + val);
+  return Object.values(points).reduce((tot, val) => tot + val, 0);
 }

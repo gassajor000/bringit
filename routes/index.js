@@ -7,7 +7,14 @@ var db = new dbManager();
 const Handlebars = require('handlebars');
 
 exports.view = function(req, res){
-  data = {'events': db.getEventsForUser('happycamper33')};
+  var username = req.cookies.username;
+
+  if(!username){
+    res.send(401);  // Not logged in!
+    return;
+  }
+
+  data = {'events': db.getEventsForUser(username)};
   res.render('index', data);
 };
 

@@ -15,6 +15,11 @@ class DatabaseManager {
     getUser(username){
         return DatabaseManager.users[username];
     }
+
+    getUserFriends(username){
+        // TODO: nuke passwords and filter by user's friends 
+        return DatabaseManager.users;
+    }
     
     getEvent(eventId){
         return DatabaseManager.events[eventId];
