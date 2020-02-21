@@ -101,9 +101,12 @@ class DatabaseManager {
         delete DatabaseManager.events[eventId];
     }
 
-    updateEvent(event){
+    updateEvent(title, date, type, eventId){
         /*Update an event*/
-
+        DatabaseManager.events[eventId].title = title;
+        DatabaseManager.events[eventId].date = date;
+        DatabaseManager.events[eventId].type = type;
+        //DatabaseManager.events[eventId].guests = guests;
     }
 
     addUser(name, username, password){

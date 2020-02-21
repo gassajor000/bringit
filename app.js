@@ -52,6 +52,7 @@ app.get('/edit', edit.view);
 
 app.post('/additem', item.add);
 app.post('/addcategory', category.add);
+app.post('/updateevent', edit.update);
 // Example route
 // app.get('/users', user.list);
 
