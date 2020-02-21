@@ -57,18 +57,19 @@ class DatabaseManager {
     }
 
     /*Modifiers*/
-    addItem(name, description, quantity, points){
+    addItem(name, description, quantity, points, category, eventId){
         /*Add event item*/
-        
-        DatabaseManager.items.push({
-            id: Date.now(),
-            name: name,
-            description: description,
-            quantity: quantity,
-            points: points,
-            claimedBy: {}
-        })
-        
+                
+        var item = {
+            "id": Date.now(),   // Make an id somehow
+            "name": name,
+            "description": description,
+            "quantity": quantity,
+            "points": points,
+            "claimedBy": {}
+        }
+        DatabaseManager.items[item.id] = item;
+        DatabaseManager.events[eventId].categories[category].push(item.id);
     }
 
     removeItem(itemId){
@@ -80,6 +81,15 @@ class DatabaseManager {
         /*Update an item*/
 
 
+    }
+
+    claimItem(itemId, username, quantity){
+        /* Assign user as bringing an item*/
+        if(quantity === 0){
+            delete DatabaseManager.items[itemId].claimedBy[username]; 
+        } else {
+            DatabaseManager.items[itemId].claimedBy[username] =  quantity; 
+        }
     }
 
     addEvent(title, date, type, owner, guests, categories){
