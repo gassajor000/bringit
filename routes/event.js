@@ -7,7 +7,7 @@ var db = new dbManager();
 const Handlebars = require('handlebars');
 
 exports.view = function(req, res){
-  var event = db.getEvent('0')
+  var event = db.getEvent(req.query.id)
   var eventData = {'event': event, 'users': db.getUsersForEvent(event.id), 'items': db.getItemsForEvent(event.id)};
   res.render('event', eventData);
 };
