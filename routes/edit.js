@@ -8,5 +8,6 @@ exports.view = function(req, res){
 };
 
 exports.update = function(req, res){
-  db.updateEvent(req.body.title, req.body.date, req.body.type, req.body.guests, req.body.eventId);
+  var guests = req.body.guests ? req.body.guests : [];
+  db.updateEvent(req.body.title, req.body.date, req.body.type, guests, req.body.eventId);
 }
