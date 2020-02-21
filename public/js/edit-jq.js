@@ -59,7 +59,7 @@ function updateAvatarList(){
 }
 
 function updateEvent() {
-
-    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('#inputEventType')[0].value, eventId: eventData.id};
+    var guest = [];
+    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('#inputEventType')[0].value, guests:guest, eventId: eventData.id};
     $.post('./updateevent', params);
 }

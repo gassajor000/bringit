@@ -46,6 +46,11 @@ class DatabaseManager {
     getUsersForEvent(eventId){
         var event = DatabaseManager.events[eventId];
         var retUsers = {};
+
+        if(!event.guests){
+            return retUsers;
+        }
+
         event.guests.forEach(username => {
             retUsers[username] =  DatabaseManager.users[username];
         });
@@ -110,12 +115,12 @@ class DatabaseManager {
         delete DatabaseManager.events[eventId];
     }
 
-    updateEvent(title, date, type, eventId){
+    updateEvent(title, date, type, guests, eventId){
         /*Update an event*/
         DatabaseManager.events[eventId].title = title;
         DatabaseManager.events[eventId].date = date;
         DatabaseManager.events[eventId].type = type;
-        //DatabaseManager.events[eventId].guests = guests;
+        DatabaseManager.events[eventId].guests = guests;
     }
 
     addUser(name, username, password){
