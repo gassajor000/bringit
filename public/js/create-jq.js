@@ -13,6 +13,8 @@ function initializePage(){
         openSelectPeopleModalHandler(invitedPeople);
     });
 
+    $('#save-btn').click(addEvent);
+
 }
 
 var allPeople = [
@@ -46,4 +48,9 @@ function updateAvatarList(){
 function onGuestsChange(newInviteList){
     invitedPeople = Array.from(newInviteList);
     updateAvatarList();
+}
+
+function addEvent () {
+    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('inputEventType')[0].value, }
+
 }

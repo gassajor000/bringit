@@ -1,3 +1,12 @@
+var dbManager = require('../db-manager');
+var db = new dbManager();
+
 exports.view = function(req, res){
   res.render('create');
 };
+
+exports.add = function(req, res){
+  db.addEvent(req.body.title, req.body.date, req.body.type, req.body.owner, req.body.guests, req.body.categories)
+  res.send(200);
+
+}
