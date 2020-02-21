@@ -102,7 +102,7 @@ function submitCategory(){
 function claimItem(){
     var modal = $('#claimModal');
 
-    var params = {itemId: modal.data('item').id, user: 'happycamper33', quantity:  modal.find('#quantityInput')[0].value}
+    var params = {itemId: modal.data('item').id, quantity:  modal.find('#quantityInput')[0].value}
     $.post('/claimitem', params);
 }
 

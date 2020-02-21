@@ -8,7 +8,14 @@ exports.add = function(req, res){
 };
 
 exports.claim = function(req, res){
-    /* data={itemId: item.id, quantity: qty, user: 'username'} */
-    db.claimItem(req.body.itemId, req.body.user, req.body.quantity)
+    /* data={itemId: item.id, quantity: qty} */
+    var username = req.cookies.username;
+
+    if (!username){
+      res.send(401);  // Not logged in!
+      return
+    }
+
+    db.claimItem(req.body.itemId, username, req.body.quantity)
     res.send(200);
 };
