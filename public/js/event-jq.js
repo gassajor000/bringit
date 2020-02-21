@@ -95,6 +95,8 @@ function addCategory(){
 function submitCategory(){
     $('#add-category-field').hide();
     $('#add-category-btn').show();
+    var params = {category: $('#add-category-input')[0].value, eventId: eventData.id};
+    $.post('/addcategory', params);
 }
 
 function addItem(){

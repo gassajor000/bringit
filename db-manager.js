@@ -125,6 +125,16 @@ class DatabaseManager {
         /*Update an event*/
 
     }
+
+    addCategory(category, eventId) {
+        DatabaseManager.events[eventId].categories[category] = [];
+    }
+
+    removeCategory(category) {
+        delete DatabaseManager.events[eventId].categories[category];
+    }
+
+    
     
 }
 

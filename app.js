@@ -15,6 +15,7 @@ var login = require('./routes/login')
 var create = require('./routes/create');
 var edit = require('./routes/edit');
 var item = require('./routes/item');
+var category = require('./routes/category')
 
 // Example route
 // var user = require('./routes/user');
@@ -50,6 +51,7 @@ app.get('/create', create.view);
 app.get('/edit', edit.view);
 
 app.post('/additem', item.add);
+app.post('/addcategory', category.add);
 // Example route
 // app.get('/users', user.list);
 
