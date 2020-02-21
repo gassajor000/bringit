@@ -107,6 +107,6 @@ function claimItem(){
 }
 
 function addItem(){
-    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category: $('#newItemModal').data.category, eventId: eventData.id};
+    var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category: $('#newItemModal').data("category"), eventId: eventData.id};
     $.post('/additem', params);
 }
