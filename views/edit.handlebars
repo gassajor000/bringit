@@ -13,14 +13,14 @@
 	<script src="js/bootstrap.js"></script>
 	<script src="js/edit-jq.js"></script>
 
-  <div id="eventData" data-event="{{jsonify event}}" data-users="{{jsonify users}}"></div>
+  <div id="eventData" data-event="{{jsonify event}}" data-users="{{jsonify users}}" data-allPeople="{{jsonify allPeople}}"></div>
 
 </head>
 <body>
     <div class="container toolbar">
-        <div class="toolbar-back"><a alt="back" href="/event"><i class="material-icons">arrow_back</i></a></div>
+        <div class="toolbar-back"><a alt="back" href="/event?id={{event.id}}"><i class="material-icons">arrow_back</i></a></div>
         <div class="toolbar-title"><h2 class="page-title">Edit {{event.title}}</h2></div>
-        <div class="toolbar-btn"><a alt="save event" href="/event"><i class="material-icons">save</i></a></div>
+        <div class="toolbar-btn"><a alt="save event" href="/event?id={{event.id}}"><i class="material-icons">save</i></a></div>
     </div>  
 
     <div class="container">

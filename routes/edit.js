@@ -1,9 +1,8 @@
 var dbManager = require('../db-manager');
 var db = new dbManager();
-const Handlebars = require('handlebars');
 
 exports.view = function(req, res){
-  var event = db.getEvent('0')
-  var eventData = {'event': event, 'users': db.getUsersForEvent(event.id)};
+  var event = db.getEvent(req.query.id)
+  var eventData = {'event': event, 'users': db.getUsersForEvent(event.id), 'allPeople': db.getUserFriends(req.cookies.username)};
   res.render('edit', eventData);
 };
