@@ -21,6 +21,7 @@ function initializePage(){
     $('#submit-category-btn').click(submitCategory);
     $('#add-category-btn').click(addCategory);
     $('#addItemSubmitBtn').click(addItem);
+    $('#claimSubmitBtn').click(claimItem);
 
     // Extract data
     eventData = $('#eventData').data('event');
@@ -34,6 +35,7 @@ function openClaimModal(event) {
     var item = itemsData[button.data('itemid')]; // Extract info from data-* attributes
     
     var modal = $(this);
+    modal.data('item', item);
     modal.find('.modal-title').text('Claim ' + item.name);
     modal.find('#quantity-addon').text('x' + item.quantity);
   }
@@ -43,7 +45,7 @@ function openAddItemModal(event) {
     var button = $(event.relatedTarget); // Button that triggered the modal
     var category = button.data('category'); // Extract category to add to
     
-    $(this).data['category'] = category;
+    $(this).data('category', category);
   }
 
   function openDetailsModal(event) {
@@ -95,6 +97,13 @@ function addCategory(){
 function submitCategory(){
     $('#add-category-field').hide();
     $('#add-category-btn').show();
+}
+
+function claimItem(){
+    var modal = $('#claimModal');
+
+    var params = {itemId: modal.data('item').id, user: 'happycamper33', quantity:  modal.find('#quantityInput')[0].value}
+    $.post('/claimitem', params);
 }
 
 function addItem(){
