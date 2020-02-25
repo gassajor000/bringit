@@ -14,7 +14,7 @@ exports.view = function(req, res){
     return;
   }
 
-  data = {'events': db.getEventsForUser(username)};
+  data = {'myEvents': db.getUserOwnedEvents(username), 'invitedEvents': db.getUserInvitedEvents(username)};
   res.render('index', data);
 };
 
@@ -24,4 +24,8 @@ Handlebars.registerHelper("getUserFullName", function(username) {
 
 Handlebars.registerHelper("formatDate", function(date) {
   return new Date(date + "GMT-08").toLocaleDateString("en-US");
+});
+
+Handlebars.registerHelper("emptyArray", function(a) {
+  return a.length === 0;
 });
