@@ -16,6 +16,6 @@ exports.claim = function(req, res){
       return
     }
 
-    db.claimItem(req.body.itemId, username, req.body.quantity)
+    db.claimItem(req.body.itemId, username, parseInt(req.body.quantity))
     res.send(200);
 };

@@ -23,7 +23,7 @@ function initializePage(){
     usersData = $('#eventData').data('users');
     itemsData = $('#eventData').data('items');
 
-    initStepper(1, 100, 1);
+    initStepper(0, 100, 1);
 }
 
 function openAddItemModal(event) {

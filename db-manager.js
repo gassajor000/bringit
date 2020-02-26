@@ -104,7 +104,7 @@ class DatabaseManager {
         if(quantity === 0){
             delete DatabaseManager.items[itemId].claimedBy[username]; 
         } else {
-            DatabaseManager.items[itemId].claimedBy[username] =  quantity; 
+            DatabaseManager.items[itemId].claimedBy[username] = quantity; 
         }
     }
 
