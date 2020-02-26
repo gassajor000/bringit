@@ -80,7 +80,7 @@
 </div>
 
 {{!-- Modals --}}
-<div class="modal fade" id="claimModal" tabindex="-1" role="dialog" aria-labelledby="claimModalLabel" aria-hidden="true">
+{{!-- <div class="modal fade" id="claimModal" tabindex="-1" role="dialog" aria-labelledby="claimModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -103,7 +103,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
    <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -125,6 +125,10 @@
           <table class="table" id="assignee-list">
             {{!-- This gets filled in with javascript --}}
           </table>
+          <div class="claim-controls-container">
+            {{> inputStepper }}  
+            <button type="button" id="claimSubmitBtn" class="btn btn-primary claim-btn" data-itemid="{{id}}">Bring it!</button>
+          </div>
 
         </div>
         <div class="modal-footer">

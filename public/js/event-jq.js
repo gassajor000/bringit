@@ -27,6 +27,8 @@ function initializePage(){
     eventData = $('#eventData').data('event');
     usersData = $('#eventData').data('users');
     itemsData = $('#eventData').data('items');
+
+    initStepper(1, 100, 1);
 }
 
 function openClaimModal(event) {
@@ -63,6 +65,7 @@ function openAddItemModal(event) {
     modal.find('#item-quantity').text('x' + item.quantity);
     modal.find('#item-points').text(item.points + 'pts');
     modal.find('#item-details').text(item.description);
+    modal.find('#claimSubmitBtn').data('itemid', item.id);
 
     var assignee_list = modal.find("#assignee-list");
     if (item['claimedBy'].length === 0){
@@ -104,9 +107,9 @@ function submitCategory(){
 }
 
 function claimItem(){
-    var modal = $('#claimModal');
+    var itemId = $(this).data('itemid');
 
-    var params = {itemId: modal.data('item').id, quantity:  modal.find('#quantityInput')[0].value}
+    var params = {itemId: itemId, quantity:  getStepperVal()}
     $.post('/claimitem', params, function(){
         location.reload();
     });
