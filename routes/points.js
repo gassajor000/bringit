@@ -5,7 +5,7 @@ exports.view = function(req, res){
   var event = db.getEvent(req.query.id);
   var users = db.getUsersForEvent(event.id);
   var items = db.getItemsForEvent(event.id);
-  var points = addPoints(items);
+  var points = addPoints(event, items);
   
   pointsData = {'points':[], 'total': totalPoints(points), 'event':event};
   for(user in points){
@@ -15,17 +15,16 @@ exports.view = function(req, res){
   res.render('points', pointsData);
 };
 
-function addPoints(items){
+function addPoints(event, items){
   /*Return a dictionary mapping each user to their total points*/
   var points = {};
+
+  event.guests.forEach(user => {points[user] = 0});
+  points[event.owner] = 0;
   
   Object.values(items).forEach(item =>{
     for(var assignee in item.claimedBy){
-      if (assignee in points){
-        points[assignee] += item.points * item.claimedBy[assignee];   // points * quantity claimed
-      } else {
-        points[assignee] = item.points * item.claimedBy[assignee];   // points * quantity claimed
-      }
+      points[assignee] += item.points * item.claimedBy[assignee];   // points * quantity claimed
     }
   });
   return points;

@@ -29,9 +29,16 @@ class DatabaseManager {
         return DatabaseManager.items[itemId];
     }
     
-    getEventsForUser(username){
-        /*Returns all events for the specified user in an array []*/
+    getUserOwnedEvents(username){
+        /*Returns all events owned by the specified user in an array []*/
         var user_events = Object.values(DatabaseManager.events).filter(event => event.owner === username);
+
+        return user_events;
+    }
+    
+    getUserInvitedEvents(username){
+        /*Returns all events which the user has been invited to in an array []*/
+        var user_events = Object.values(DatabaseManager.events).filter(event => event.guests.includes(username));
 
         return user_events;
     }

@@ -16,8 +16,8 @@
 <body>
 	
 	<h1 class="text-center">Bringit!</h1>
-	<h3 class="text-center">My Lists</h3>
-	{{#each events}}
+	<h3 class="text-center">My Events</h3>
+	{{#each myEvents}}
 	<a href="/event?id={{id}}">
 	<div class="event card">
 		<table> 
@@ -36,5 +36,27 @@
 	{{/each}}
 
 	<div id="add-btn-container"><button class="text-center btn btn-primary" id="add-btn"><a alt="add" href="/create"><i class="material-icons">add</i> Event</a></button></div>
+
+	<h3 class="text-center">Invited Events</h3>
+	{{#each invitedEvents}}
+	<a href="/event?id={{id}}">
+	<div class="event card">
+		<table> 
+			<tr>
+				<th><h3 class="event-title">{{title}}</h3></th>
+				<th><h6>{{formatDate date}}</h6></th>
+			</tr>
+
+			<tr>
+				<td><h6>{{#each guests}}{{getUserFullName this}}, {{/each}}</h6></td>		
+			</tr>
+			
+		</table>
+	</div>
+	</a>
+	{{/each}}
+	{{#if (emptyArray invitedEvents)}}
+	<p class="event-inline">No upcoming event invitations</p>
+	{{/if}}
 </body>
 </html>
