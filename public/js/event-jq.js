@@ -5,16 +5,11 @@ $(document).ready(function() {
 	initializePage();
 })
 
-var claimClicked = false;
 var usersData = {};
 var itemsData = {};
 var eventData = {};
 
 function initializePage(){
-    $('#claimModal').on('show.bs.modal', openClaimModal);
-    $('#claimModal').on('hide.bs.modal', function (event){
-        claimClicked = false;
-    });
     $('#detailsModal').on('show.bs.modal', openDetailsModal);
     $('#newItemModal').on('show.bs.modal', openAddItemModal);
     $('#add-category-field').hide();
@@ -31,19 +26,7 @@ function initializePage(){
     initStepper(1, 100, 1);
 }
 
-function openClaimModal(event) {
-    claimClicked = true;
-    var button = $(event.relatedTarget); // Button that triggered the modal
-    var item = itemsData[button.data('itemid')]; // Extract info from data-* attributes
-    
-    var modal = $(this);
-    modal.data('item', item);
-    modal.find('.modal-title').text('Claim ' + item.name);
-    modal.find('#quantity-addon').text('x' + item.quantity);
-  }
-
 function openAddItemModal(event) {
-    claimClicked = true;
     var button = $(event.relatedTarget); // Button that triggered the modal
     var category = button.data('category'); // Extract category to add to
     
@@ -52,11 +35,6 @@ function openAddItemModal(event) {
 
   function openDetailsModal(event) {
     var button = $(event.relatedTarget);
-
-    if(claimClicked){
-        event.stopPropagation();
-        return false;
-    }
 
     var item = itemsData[button.data('item')];
     
