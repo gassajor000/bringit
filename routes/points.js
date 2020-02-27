@@ -8,9 +8,11 @@ exports.view = function(req, res){
   var points = addPoints(event, items);
   
   pointsData = {'points':[], 'total': totalPoints(points), 'event':event};
+  pointsArr = [];
   for(user in points){
-    pointsData.points.push({'name': users[user].name, 'points': points[user]});
+    pointsArr.push({'name': users[user].name, 'points': points[user]});
   }
+  pointsData.points = pointsArr.sort((a, b) => b.points - a.points);
 
   res.render('points', pointsData);
 };

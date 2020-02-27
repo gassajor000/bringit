@@ -23,6 +23,11 @@
         <div class="toolbar-title"><h2 class="page-title">Points Totals</h2></div>
     </div>
 
+    <div>
+        <div id="donutchart" style="width: 100%; height: 400px;"></div>
+    </div>
+    <h3 class = text-center>Total points: {{total}}</h3>
+
     <table>
 	    {{#each points}}
             <tr class="table-line">
@@ -31,10 +36,7 @@
             </tr>
 	    {{/each}}
     </table>
-    <hr>
-    <h3 class = text-center>Total points: {{total}}</h3>
-    <div>
-        <div id="donutchart" style="width: 100%; height: 400px;"></div>
-    </div>
+    {{!-- <hr> --}}
+
 </body>
 </html>
