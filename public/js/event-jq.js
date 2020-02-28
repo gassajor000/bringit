@@ -5,16 +5,11 @@ $(document).ready(function() {
 	initializePage();
 })
 
-var claimClicked = false;
 var usersData = {};
 var itemsData = {};
 var eventData = {};
 
 function initializePage(){
-    $('#claimModal').on('show.bs.modal', openClaimModal);
-    $('#claimModal').on('hide.bs.modal', function (event){
-        claimClicked = false;
-    });
     $('#detailsModal').on('show.bs.modal', openDetailsModal);
     $('#newItemModal').on('show.bs.modal', openAddItemModal);
     $('#add-category-field').hide();
@@ -27,21 +22,11 @@ function initializePage(){
     eventData = $('#eventData').data('event');
     usersData = $('#eventData').data('users');
     itemsData = $('#eventData').data('items');
+
+    initStepper(0, 100, 1);
 }
 
-function openClaimModal(event) {
-    claimClicked = true;
-    var button = $(event.relatedTarget); // Button that triggered the modal
-    var item = itemsData[button.data('itemid')]; // Extract info from data-* attributes
-    
-    var modal = $(this);
-    modal.data('item', item);
-    modal.find('.modal-title').text('Claim ' + item.name);
-    modal.find('#quantity-addon').text('x' + item.quantity);
-  }
-
 function openAddItemModal(event) {
-    claimClicked = true;
     var button = $(event.relatedTarget); // Button that triggered the modal
     var category = button.data('category'); // Extract category to add to
     
@@ -51,11 +36,6 @@ function openAddItemModal(event) {
   function openDetailsModal(event) {
     var button = $(event.relatedTarget);
 
-    if(claimClicked){
-        event.stopPropagation();
-        return false;
-    }
-
     var item = itemsData[button.data('item')];
     
     var modal = $(this);
@@ -63,6 +43,7 @@ function openAddItemModal(event) {
     modal.find('#item-quantity').text('x' + item.quantity);
     modal.find('#item-points').text(item.points + 'pts');
     modal.find('#item-details').text(item.description);
+    modal.find('#claimSubmitBtn').data('itemid', item.id);
 
     var assignee_list = modal.find("#assignee-list");
     if (item['claimedBy'].length === 0){
@@ -104,9 +85,9 @@ function submitCategory(){
 }
 
 function claimItem(){
-    var modal = $('#claimModal');
+    var itemId = $(this).data('itemid');
 
-    var params = {itemId: modal.data('item').id, quantity:  modal.find('#quantityInput')[0].value}
+    var params = {itemId: itemId, quantity:  getStepperVal()}
     $.post('/claimitem', params, function(){
         location.reload();
     });

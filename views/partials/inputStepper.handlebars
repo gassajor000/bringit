@@ -1,0 +1,104 @@
+<div class="input-group stepper-container">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default btn-number stepper-full-ht" disabled="disabled" data-type="minus" data-field="quant[1]">
+            <span class="glyphicon glyphicon-minus"></span>
+        </button>
+    </span>
+    <input type="number" name="quant[1]" id="stepperInput" class="form-control input-number stepper-full-ht">
+    <span class="input-group-btn">
+        <button type="button" class="btn btn-default btn-number stepper-full-ht" data-type="plus" data-field="quant[1]">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </span>
+</div>
+
+<style>
+    .stepper-container{
+        width: 150px;
+    }
+    .stepper-full-ht{
+        height: 32px;
+    }
+    .btn-default{
+        background-image: none;
+    }
+</style>
+<script>
+    var stepperMax = 10;
+    var stepperMin = 1;
+    var stepperDefault = 1;
+    var name = '';
+
+
+    //plugin bootstrap minus and plus
+    //http://jsfiddle.net/laelitenetwork/puJ6G/
+    function incDec(e){
+        e.preventDefault();
+        
+        var type      = $(this).attr('data-type');
+        var input = $("input[name='"+ name +"']");
+        var currentVal = parseInt(input.val());
+        if (!isNaN(currentVal)) {
+            if(type === 'minus') {
+                
+                if(currentVal > stepperMin) {
+                    input.val(currentVal - 1).change();
+                } 
+
+            } else if(type === 'plus') {
+
+                if(currentVal < stepperMax) {
+                    input.val(currentVal + 1).change();
+                }
+
+            }
+            setDisabled(parseInt(input.val()));
+        } else {
+            input.val(0);
+        }
+    }
+   function validateManualInput() {
+        
+        var valueCurrent = parseInt($(this).val());
+        
+        if(valueCurrent < stepperMin) {
+            alert('Sorry, the minimum value was reached');
+            $(this).val(stepperMin);
+        }
+        if(valueCurrent > stepperMax) {
+            alert('Sorry, the maximum value was reached');
+            $(this).val(stepperMax);
+        }
+        setDisabled(valueCurrent);
+    }
+
+    function setDisabled(valueCurrent){
+        if(valueCurrent <= stepperMin) {
+            $(".btn-number[data-type='minus'][data-field='"+name+"']").attr('disabled', true);
+        } else {
+            $(".btn-number[data-type='minus'][data-field='"+name+"']").removeAttr('disabled');
+        }
+        if(valueCurrent >= stepperMax) {
+            $(".btn-number[data-type='plus'][data-field='"+name+"']").attr('disabled', true);
+        } else {
+            $(".btn-number[data-type='plus'][data-field='"+name+"']").removeAttr('disabled');
+
+        }
+    }
+
+    function initStepper(minV, maxV, defaultV){
+        stepperMin = minV;
+        stepperMax = maxV;
+        stepperDefault = defaultV;
+        name = $("#stepperInput").attr('name');
+
+        $("#stepperInput").val(stepperDefault);
+        $('.btn-number').click(incDec);;
+        $('.input-number').change(validateManualInput);
+        setDisabled(defaultV);
+    }
+
+    function getStepperVal(){
+        return parseInt($("#stepperInput").val());
+    }
+</script>

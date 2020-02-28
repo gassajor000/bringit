@@ -42,11 +42,12 @@
     text-align: center;
 }
 .chip{
-    padding: 5px 20px;
+    padding: 8px 20px;
     background-color: gainsboro;
-    border-radius: 15px;
+    border-radius: 18px;
     display: inline;
-    margin: 2px 15px;
+    margin: 10px 15px;
+    font-size: 12pt;
 }
 
 .well{
@@ -82,4 +83,8 @@
 }
 .center-cell{
     text-align: center;
+}
+.claim-controls-container{
+    display: flex;
+    justify-content: space-evenly;
 }
