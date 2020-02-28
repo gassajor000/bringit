@@ -20,6 +20,8 @@ function drawChart() {
     var pointsData = $('#pointsData').data('points');
     var pointsArray = pointsData.map(entry => [getFirstName(entry.name), entry.points]);
     pointsArray.unshift(['Guest', 'Points']);
+    var diff = $('#pointsData').data('required') - $('#pointsData').data('total');
+    pointsArray.push(['Unclaimed', diff]);
     var data = google.visualization.arrayToDataTable(pointsArray);
 
     var options = {
