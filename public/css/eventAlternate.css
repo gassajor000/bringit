@@ -1,0 +1,106 @@
+.toolbar{
+    display: inline;
+}
+.toolbar .toolbar-back{
+    float: left;
+    padding-left: 20px;
+}
+.toolbar .toolbar-title{
+    float: left;
+    padding-left: 20px;
+    max-width: 60%;
+}
+.toolbar .toolbar-btn{
+    float: right;
+    padding-right: 20px;
+    margin-bottom: 10px;
+}
+.toolbar-btn button{
+    width: 85px;
+}
+
+.page-title{
+    margin-top: 0px;
+}
+.item-category{
+    margin-top: 20px;
+}
+.item-cell{
+    text-align: left;
+}
+.btn-primary{
+    background-image: none;
+    padding: 2px 20px;
+    border-radius: 15px;
+}
+.avatar{
+    display: inline-block;
+    background-color: gainsboro;
+    text-align: center;
+    height: 20px;
+    width: 20px;
+}
+
+.item-details-list{
+    list-style: none;
+    text-align: center;
+}
+.chip{
+    padding: 8px 20px;
+    background-color: gainsboro;
+    border-radius: 18px;
+    display: inline;
+    margin: 10px 15px;
+    font-size: 12pt;
+}
+
+.well{
+    background-image: none;
+}
+
+#add-category-btn{
+    display: flex;
+    align-items: center;
+}
+
+#add-category-btn p {
+    margin: 0;
+}
+
+#add-category-btn-container{
+    display: flex;
+    justify-content: center;
+}
+
+#add-category-field{
+    width: 70%;
+    margin-left: 20px;
+}
+
+.add-category-container{
+    margin-top: 15px;
+    margin-bottom: 80px;
+}
+
+.table td{
+    width: fit-content;
+}
+.center-cell{
+    text-align: center;
+}
+.claim-controls-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.add-item-btn{
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    margin-bottom: 50px;
+}
+.add-item-btn p{
+    margin: 0;
+}
+.btn-primary a{
+    color: white;
+}

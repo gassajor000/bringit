@@ -1,0 +1,166 @@
+<html>
+<head>
+	<title>Bringit! - {{event.title}}</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+	<link href="css/bootstrap-theme.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+	<link href="css/eventAlternate.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery.js"></script>
+	<script src="js/bootstrap.js"></script>
+	<script src="js/event-jq.js"></script>
+
+  <div id="eventData" data-event="{{jsonify event}}" data-items="{{jsonify items}}" data-users="{{jsonify users}}"></div>
+</head>
+<body>
+    <div class="container toolbar">
+        <div class="toolbar-back"><a alt="back" href="/index"><i class="material-icons">arrow_back</i></a></div>
+        <div class="toolbar-title"><h2 class="page-title">{{event.title}}</h2></div>
+        <div class="toolbar-btn"><button type="button" class="toolbar-btn btn btn-primary"><a alt="point totals" href="/points?id={{event.id}}">Points</a></button></div>
+        <div class="toolbar-btn"><button type="button" class="toolbar-btn btn btn-primary"><a alt="event settings" href="/edit?id={{event.id}}">Edit</a></button></div>
+    </div>
+
+<div id="items-list">
+    {{#each event.categories}}
+    <div class="card item-category">
+    <div class="card-header" id="headingOne">
+        <p class="h3">{{@key}}</p>
+      {{!-- <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Collapsible Group Item #1
+        </button>
+      </h5> --}}
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+      <div class="card-body">
+
+          <table class="table">
+            <tbody>
+                {{#listItems this}}
+                <tr data-toggle="modal" data-target="#detailsModal" data-item="{{id}}">
+                <td class="item-cell">{{name}}</td>
+                <td class="item-cell">x{{quantity}}</td>
+                <td class="item-cell">{{points}}pts</td>
+                <td class="item-cell">{{#if (emptyDict claimedBy)}}
+                    {{else}}
+                    {{#each claimedBy}}
+                    <div class="avatar">{{getUserFirstLetter @key}}</div>
+                    {{/each}}
+                    {{/if}}</td>
+                </tr>
+                {{/listItems}}
+            </tbody>
+            </table>
+
+
+        <button type="button" class="btn add-item-btn" data-toggle="modal" data-target="#newItemModal" data-category="{{@key}}" aria-label="Add Item"><i class="material-icons">add</i><p>Item</p></button>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+  <div class="add-category-container">
+    <div id="add-category-btn-container">
+      <button type="button" class="btn btn-primary" aria-label="Add Category" id="add-category-btn"><i class="material-icons">add</i> <p>Category</p></button>
+    </div>
+     
+     <div class="input-group" id="add-category-field">
+        <input type="text" id="add-category-input" class="form-control" placeholder="Category Name" aria-label="Category Name" aria-describedby="button-addon2">
+        <span class="input-group-btn">
+          <button class="btn btn-secondary" type="button" id="submit-category-btn">Add</button>
+        </span>
+     </div>
+  </div>
+  
+
+</div>
+
+{{!-- Modals --}}
+
+   <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="detailsModalLabel">Item Name</h4>
+        </div>
+        <div class="modal-body">
+          {{!-- Item details here --}}
+          <ul class="item-details-list">
+            <li class="chip" id="item-quantity">quantity</li>
+            <li class="chip" id="item-points">points</li>
+          </ul>
+          <p class="well well-sm" id="item-details">details</p>
+
+          <table class="table" id="assignee-list">
+            {{!-- This gets filled in with javascript --}}
+          </table>
+          <div class="claim-controls-container">
+            {{> inputStepper }}  
+            <button type="button" id="claimSubmitBtn" class="btn btn-primary claim-btn" data-itemid="{{id}}">Bring it!</button>
+          </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<div class="modal fade" id="newItemModal" tabindex="-1" role="dialog" aria-labelledby="newItemModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title" id="newItemModalLabel">New Item</h4>
+      </div>
+      <div class="modal-body">
+
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label for="inputItemName" class="col-sm-2 control-label">Item Name</label>
+            <div class="col-sm-6">
+              <input type="text" class="form-control" id="inputItemName" placeholder="Napkins">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputQuantity" class="col-sm-2 control-label">Quantity</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="inputQuantity" placeholder="5">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputPoints" class="col-sm-2 control-label">Points</label>
+            <div class="col-sm-6">
+              <input type="number" class="form-control" id="inputPoints" placeholder="6">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputDetails" class="col-sm-2 control-label">Details</label>
+            <div class="col-sm-6">
+              <textarea rows="2" class="form-control" id="inputDetails" placeholder="5 packs of paper napkins"></textarea>
+            </div>
+          </div>
+          
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addItemSubmitBtn">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
