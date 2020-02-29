@@ -61,11 +61,14 @@
                     {{/if}}</td>
                 </tr>
                 {{/listItems}}
+                <tr><td colspan="4">  
+                  <div class="add-item-row" data-toggle="modal" data-target="#newItemModal" data-category="{{@key}}" aria-label="Add Item"><i class="material-icons">add</i><p>Item</p></div>
+                  </td></tr>
             </tbody>
             </table>
 
-
-        <button type="button" class="btn" data-toggle="modal" data-target="#newItemModal" data-category="{{@key}}" aria-label="Add Item"><i class="material-icons">add</i></button>
+{{!-- 
+        <button type="button" class="btn" data-toggle="modal" data-target="#newItemModal" data-category="{{@key}}" aria-label="Add Item"><i class="material-icons">add</i></button> --}}
       </div>
     </div>
   </div>
