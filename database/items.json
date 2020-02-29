@@ -38,5 +38,21 @@
         "quantity": 2,
         "points": 5,
         "claimedBy": {"happycamper33": 1, "duckBill26": 1}
+    },
+    "5": {
+        "id": "5",
+        "name": "Fig Pudding",
+        "description": "1 bowl of fig pudding",
+        "quantity": 3,
+        "points": 5,
+        "claimedBy": {"happycamper33": 1, "gassa99": 1}
+    },
+    "6": {
+        "id": "6",
+        "name": "Christmas Tree",
+        "description": "7' Christmas tree, fully decorated",
+        "quantity": 1,
+        "points": 20,
+        "claimedBy": {}
     }
 }

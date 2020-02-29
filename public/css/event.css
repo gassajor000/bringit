@@ -88,3 +88,7 @@
     display: flex;
     justify-content: space-evenly;
 }
+.dropdown-menu > li > a{
+    padding: 8px 20px;
+    font-size: 16px;
+}
