@@ -127,6 +127,11 @@ class DatabaseManager {
 
     removeEvent(eventId){
         /*Remove an event*/
+        var items = this.getItemsForEvent(eventId);
+        for(var item in items){
+            delete DatabaseManager.items[item];
+        }
+
         delete DatabaseManager.events[eventId];
     }
 
@@ -170,7 +175,6 @@ class DatabaseManager {
     removeUser(username){
         /*Remove an event*/
         delete DatabaseManager.users[username];
-
     }
 
     updateUser(user){

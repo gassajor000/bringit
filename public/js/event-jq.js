@@ -17,6 +17,7 @@ function initializePage(){
     $('#add-category-btn').click(addCategory);
     $('#addItemSubmitBtn').click(addItem);
     $('#claimSubmitBtn').click(claimItem);
+    $('#deleteEventBtn').click(deleteEvent);
 
     // Extract data
     eventData = $('#eventData').data('event');
@@ -100,4 +101,8 @@ function addItem(){
         location.reload();
     });
 
+}
+
+function deleteEvent(e){
+    $.post('/deleteEvent', {eventId: eventData.id});
 }

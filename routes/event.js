@@ -19,6 +19,11 @@ exports.eventAlt = function(req, res) {
   res.render('eventAlternate', eventData);
 }
 
+exports.delete = function(req, res){
+  db.removeEvent(req.body.eventId);
+  res.status(200);
+}
+
 Handlebars.registerHelper("getFirstLetter", function(s) {
   return s[0].toUpperCase();
 });

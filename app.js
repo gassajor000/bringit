@@ -58,6 +58,7 @@ app.post('/updateevent', edit.update);
 app.post('/claimitem', item.claim);
 app.post('/login', login.login);
 app.post('/createEvent', create.add);
+app.post('/deleteEvent', event.delete);
 // Example route
 // app.get('/users', user.list);
 
