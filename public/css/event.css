@@ -60,7 +60,7 @@
 }
 
 #add-category-btn p {
-    margin: 0;
+    margin: 0 0 0 10px;
 }
 
 #add-category-btn-container{
@@ -91,4 +91,26 @@
 .dropdown-menu > li > a{
     padding: 8px 20px;
     font-size: 16px;
+}
+.add-item-btn{
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    margin-bottom: 50px;
+}
+.add-item-btn p{
+    margin: 0;
+}
+.btn-primary a{
+    color: white;
+}
+.add-item-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    margin-bottom: 50px;
+}
+.add-item-row p {
+    margin: 0 0 0 10px;
 }
