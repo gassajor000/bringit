@@ -7,9 +7,17 @@
 	<link href="css/bootstrap-theme.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-	<link href="css/points.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="js/bootstrap.js"></script>
+    
+    <link rel="stylesheet" href="css/circle.css">
+	<link href="css/points.css" rel="stylesheet">
+
+
+    <script src="js/points-jq.js"></script>
+
+  <div id="pointsData" data-points="{{jsonify points}}" data-total="{{total}}", data-required="{{required}}"></div>
+
 </head>
 
 <body>
@@ -17,6 +25,20 @@
         <div class="toolbar-back"><a alt="back" href="/event?id={{event.id}}"><i class="material-icons">arrow_back</i></a></div>
         <div class="toolbar-title"><h2 class="page-title">Points Totals</h2></div>
     </div>
+
+    <div id="progressContainer">
+        <div class="c100 big green">
+            <span id="progressNum"></span>
+            <div class="slice">
+                <div class="bar"></div>
+                <div class="fill"></div>
+            </div>
+
+        </div>
+        <div id="goal">Goal: {{required}}pts</div>
+
+    </div>
+    {{!-- <h3 class = text-center>Total points: {{total}}</h3> --}}
 
     <table>
 	    {{#each points}}
@@ -26,7 +48,7 @@
             </tr>
 	    {{/each}}
     </table>
-    <hr>
-    <h3 class = text-center>Total points: {{total}}</h3>
+    {{!-- <hr> --}}
+
 </body>
 </html>
