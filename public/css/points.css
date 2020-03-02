@@ -50,3 +50,22 @@ table {
     width: 40px;
     margin-right: 40px;
 }
+
+#progressContainer{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#goal {
+  text-align: center;
+  font-size: 14pt;
+  position: relative;
+  top: -100px;
+  color: #888888;
+}
+
+.c100{
+  margin: 0 0 20px 0;
+  
+}
