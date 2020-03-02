@@ -17,13 +17,14 @@ function initializePage(){
     $('#add-category-btn').click(addCategory);
     $('#addItemSubmitBtn').click(addItem);
     $('#claimSubmitBtn').click(claimItem);
+    $('#deleteEventBtn').click(deleteEvent);
 
     // Extract data
     eventData = $('#eventData').data('event');
     usersData = $('#eventData').data('users');
     itemsData = $('#eventData').data('items');
 
-    initStepper(1, 100, 1);
+    initStepper(0, 100, 1);
 }
 
 function openAddItemModal(event) {
@@ -100,4 +101,8 @@ function addItem(){
         location.reload();
     });
 
+}
+
+function deleteEvent(e){
+    $.post('/deleteEvent', {eventId: eventData.id});
 }

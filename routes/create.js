@@ -6,8 +6,8 @@ exports.view = function(req, res){
 };
 
 exports.add = function(req, res){
-
-  db.addEvent(req.body.title, req.body.date, req.body.type, req.cookies.username, req.body.guests, req.body.categories);
+  var guests = req.body.guests ? req.body.guests : [];
+  db.addEvent(req.body.title, req.body.date, req.body.type, req.cookies.username, guests, req.body.categories);
   res.send(200);
 
 }

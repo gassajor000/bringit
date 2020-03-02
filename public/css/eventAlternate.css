@@ -13,6 +13,10 @@
 .toolbar .toolbar-btn{
     float: right;
     padding-right: 20px;
+    margin-bottom: 10px;
+}
+.toolbar-btn button{
+    width: 85px;
 }
 
 .page-title{
@@ -60,7 +64,7 @@
 }
 
 #add-category-btn p {
-    margin: 0 0 0 10px;
+    margin: 0;
 }
 
 #add-category-btn-container{
@@ -88,10 +92,6 @@
     display: flex;
     justify-content: space-evenly;
 }
-.dropdown-menu > li > a{
-    padding: 8px 20px;
-    font-size: 16px;
-}
 .add-item-btn{
     display: flex;
     align-items: center;
@@ -103,14 +103,4 @@
 }
 .btn-primary a{
     color: white;
-}
-.add-item-row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 6px;
-    margin-bottom: 50px;
-}
-.add-item-row p {
-    margin: 0 0 0 10px;
 }

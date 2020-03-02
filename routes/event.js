@@ -8,9 +8,21 @@ const Handlebars = require('handlebars');
 
 exports.view = function(req, res){
   var event = db.getEvent(req.query.id)
-  var eventData = {'event': event, 'users': db.getUsersForEvent(event.id), 'items': db.getItemsForEvent(event.id)};
+  var eventData = {'event': event, 'users': db.getUsersForEvent(event.id), 'items': db.getItemsForEvent(event.id), 'altView': false};
   res.render('event', eventData);
+
 };
+
+exports.eventAlt = function(req, res) {
+  var event = db.getEvent(req.query.id)
+  var eventData = {'event': event, 'users': db.getUsersForEvent(event.id), 'items': db.getItemsForEvent(event.id), 'altView': true};
+  res.render('eventAlternate', eventData);
+}
+
+exports.delete = function(req, res){
+  db.removeEvent(req.body.eventId);
+  res.status(200);
+}
 
 Handlebars.registerHelper("getFirstLetter", function(s) {
   return s[0].toUpperCase();

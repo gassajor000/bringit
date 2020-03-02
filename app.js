@@ -50,6 +50,7 @@ app.get('/event', event.view);
 app.get('/points', points.view);
 app.get('/create', create.view);
 app.get('/edit', edit.view);
+app.get('/viewAlt', event.eventAlt);
 
 app.post('/additem', item.add);
 app.post('/addcategory', category.add);
@@ -57,6 +58,7 @@ app.post('/updateevent', edit.update);
 app.post('/claimitem', item.claim);
 app.post('/login', login.login);
 app.post('/createEvent', create.add);
+app.post('/deleteEvent', event.delete);
 // Example route
 // app.get('/users', user.list);
 
