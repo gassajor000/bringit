@@ -20,15 +20,25 @@ function drawChart() {
     var pointsData = $('#pointsData').data('points');
     var pointsArray = pointsData.map(entry => [getFirstName(entry.name), entry.points]);
     pointsArray.unshift(['Guest', 'Points']);
-    var diff = $('#pointsData').data('required') - $('#pointsData').data('total');
+    
+    var required = $('#pointsData').data('required');
+    var total = $('#pointsData').data('total');
+    var diff = required - total;
+    var percentage = (total / required) * 100;
+    
     pointsArray.push(['Unclaimed', diff]);
     var data = google.visualization.arrayToDataTable(pointsArray);
+    var unclaimedSliceNum = pointsArray.length - 2;
+    var slices = {};
+    slices[unclaimedSliceNum] = {color: 'gray'};
 
     var options = {
-        pieHole: 0.5,
+        title: percentage.toFixed(0) + "% of goal reached",
+        pieHole: 0.7,
         // legend: {position:'top', maxLines:3},
-        legend: 'none',
-        pieSliceText: 'label',
+        // legend: 'none',
+        pieSliceText: 'value',
+        slices: slices,
         // pieSliceTextStyle: {color: 'black'},
     };
 
