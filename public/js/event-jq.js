@@ -1,6 +1,6 @@
 'use strict';
 
-// Call this function when the page loads (the "ready" event)
+// Call this functionhe page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
 })
@@ -18,7 +18,8 @@ function initializePage(){
     $('#addItemSubmitBtn').click(addItem);
     $('#claimSubmitBtn').click(claimItem);
     $('#deleteEventBtn').click(deleteEvent);
-    $('.btn').click(clickAddItem);
+    $('.add-item-btn').click(clickAddItem);
+    $('.add-item-row').click(clickAddItem);
     $('.dropdown toolbar-btn').click(clickPoints);
     $('.toolbar-btn').click(clickPoints);
 
