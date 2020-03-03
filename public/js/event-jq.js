@@ -112,12 +112,10 @@ function deleteEvent(e){
 
 function clickAddItem(e) {
    
-    ga('create', 'UA-158820516-2', 'auto');
     ga('send', 'event', 'addItem', 'click');
 }
 
 function clickPoints(e) {
     
-    ga('create', 'UA-158820516-2', 'auto');
     ga('send', 'event', 'points', 'click');
 }
