@@ -1,6 +1,6 @@
 'use strict';
 
-// Call this function when the page loads (the "ready" event)
+// Call this functionhe page loads (the "ready" event)
 $(document).ready(function() {
 	initializePage();
 })
@@ -18,6 +18,10 @@ function initializePage(){
     $('#addItemSubmitBtn').click(addItem);
     $('#claimSubmitBtn').click(claimItem);
     $('#deleteEventBtn').click(deleteEvent);
+    $('.add-item-btn').click(clickAddItem);
+    $('.add-item-row').click(clickAddItem);
+    $('.dropdown toolbar-btn').click(clickPoints);
+    $('.toolbar-btn').click(clickPoints);
 
     // Extract data
     eventData = $('#eventData').data('event');
@@ -105,4 +109,14 @@ function addItem(){
 
 function deleteEvent(e){
     $.post('/deleteEvent', {eventId: eventData.id});
+}
+
+function clickAddItem(e) {
+   
+    ga('send', 'event', 'addItem', 'click');
+}
+
+function clickPoints(e) {
+    
+    ga('send', 'event', 'points', 'click');
 }
