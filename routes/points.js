@@ -7,10 +7,12 @@ exports.view = function(req, res){
   var items = db.getItemsForEvent(event.id);
   var points = addPoints(event, items);
   
-  pointsData = {'points':[], 'total': totalPoints(points), 'event':event};
+  pointsData = {'points':[], 'total': totalPoints(points), 'event':event, 'required': totalRequired(items)};
+  pointsArr = [];
   for(user in points){
-    pointsData.points.push({'name': users[user].name, 'points': points[user]});
+    pointsArr.push({'name': users[user].name, 'points': points[user]});
   }
+  pointsData.points = pointsArr.sort((a, b) => b.points - a.points);
 
   res.render('points', pointsData);
 };
@@ -32,4 +34,8 @@ function addPoints(event, items){
 
 function totalPoints(points){
   return Object.values(points).reduce((tot, val) => tot + val, 0);
+}
+
+function totalRequired(items){
+  return Object.values(items).reduce((tot, item) => tot + (item.quantity * item.points), 0);
 }
