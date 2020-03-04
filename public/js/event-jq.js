@@ -42,6 +42,8 @@ function openAddItemModal(event) {
     var button = $(event.relatedTarget);
 
     var item = itemsData[button.data('item')];
+
+    ga('send', 'event', 'details', 'open', item.name);
     
     var modal = $(this);
     modal.find('.modal-title').text(item["name"]);
@@ -79,11 +81,16 @@ function makeAvatar(name){
 function addCategory(){
     $('#add-category-field').show();
     $('#add-category-btn').hide();
+    ga('send', 'event', 'addCategory', 'click');
+
 }
 function submitCategory(){
     $('#add-category-field').hide();
     $('#add-category-btn').show();
     var params = {category: $('#add-category-input')[0].value, eventId: eventData.id};
+
+    ga('send', 'event', 'addCategory', 'submit', JSON.stringify(params));
+
     $.post('/addcategory', params, function() {
         location.reload();
     });
@@ -91,14 +98,19 @@ function submitCategory(){
 
 function claimItem(){
     var itemId = $(this).data('itemid');
+    var quantity = getStepperVal();
+    var params = {itemId: itemId, quantity:  quantity}
 
-    var params = {itemId: itemId, quantity:  getStepperVal()}
+    ga('send', 'event', 'claim', 'submit', JSON.stringify(params));
+
     $.post('/claimitem', params, function(){
         location.reload();
     });
 }
 
 function addItem(){
+    ga('send', 'event', 'addItem', 'submit');
+
     var params = {name: $('#inputItemName')[0].value, quantity: $('#inputQuantity')[0].value, points: $('#inputPoints')[0].value, description: $('#inputDetails')[0].value, category: $('#newItemModal').data("category"), eventId: eventData.id};
 
     $.post('/additem', params, function(){
@@ -108,6 +120,7 @@ function addItem(){
 }
 
 function deleteEvent(e){
+    ga('send', 'event', 'delete', 'click');
     $.post('/deleteEvent', {eventId: eventData.id});
 }
 
