@@ -1,6 +1,6 @@
 :root{
     --color-primary: #4db6ac;
-    --color-primary-light: #82e9de;
+    --color-primary-light: #b2dfdb;
     --color-primary-dark: #00867d;
     --color-secondary: #ffab40;
     --color-secondary-light: #ffdd71;
@@ -22,6 +22,19 @@
 .btn-primary:active, .btn-primary.active{
     background-color: var(--color-secondary-dark);
     background-image: none;
+}
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+    background-color: var(--color-secondary-light);
+    background-image: none;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
+  color: var(--color-secondary-text);
+  background-color: var(--color-secondary-dark);
+  border-color: var(--color-secondary-dark);
 }
 .btn-default{
     background-color: var(--color-secondary-dark);
@@ -76,4 +89,34 @@
 
 .page-title{
     margin-top: 0px;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 1.25rem;
+}
+
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card-header:first-child {
+    border-radius: calc(1.25rem - 1px) calc(1.25rem - 1px) 0 0
+}
+
+.card-footer {
+    padding: .75rem 1.25rem;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+.card-footer:last-child {
+    border-radius: 0 0 calc(1.25rem - 1px) calc(1.25rem - 1px);
 }
