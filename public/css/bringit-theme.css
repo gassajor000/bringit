@@ -1,0 +1,70 @@
+:root{
+    --color-primary: #4db6ac;
+    --color-primary-light: #82e9de;
+    --color-primary-dark: #00867d;
+    --color-secondary: #ffab40;
+    --color-secondary-light: #ffdd71;
+    --color-secondary-dark: #c77c02;
+
+    --color-primary-text: #000000;
+    --color-secondary-text: #000000;
+}
+
+.btn-primary{
+    background-color: var(--color-secondary);
+    background-image: none;
+    color: var(--color-secondary-text);
+    border-color: var(--color-secondary-dark)
+}
+.btn-primary a{
+    color: var(--color-secondary-text);
+}
+.btn-primary:active, .btn-primary.active{
+    background-color: var(--color-secondary-dark);
+    background-image: none;
+}
+.btn-default{
+    background-color: var(--color-secondary-dark);
+    background-image: none;
+    color: var(--color-secondary-text);
+    border-color: var(--color-secondary-dark);
+    text-shadow: none;
+}
+.btn-default a{
+    color: var(--color-secondary-text);
+}
+
+.logo{
+    background-color: var(--color-primary);
+    margin-top: 0;
+    padding: 20px;
+}
+.well{
+    background-color: var(--color-primary-light);
+}
+
+.toolbar{
+    background-color: var(--color-primary);
+    padding: 10px 0;
+}
+.toolbar .toolbar-back{
+    float: left;
+    padding-left: 20px;
+    color: var(--color-primary-text);
+}
+.toolbar a {
+    color: var(--color-primary-text);
+}
+.toolbar .toolbar-title{
+    float: left;
+    padding-left: 20px;
+    max-width: 60%;
+}
+.toolbar .toolbar-btn{
+    float: right;
+    padding-right: 20px;
+}
+
+.page-title{
+    margin-top: 0px;
+}

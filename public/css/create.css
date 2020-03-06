@@ -1,27 +1,5 @@
-.toolbar{
-    display: inline;
-}
-.toolbar .toolbar-back{
-    float: left;
-    padding-left: 20px;
-}
-.toolbar .toolbar-title{
-    float: left;
-    padding-left: 20px;
-    max-width: 60%;
-}
-.toolbar .toolbar-btn{
-    float: right;
-    padding-right: 20px;
-}
+@import "bringit-theme.css";
 
-.page-title{
-    margin-top: 0px;
-}
-
-.btn-primary{
-    background-image: none;
-}
 .avatar{
     display: inline-block;
     background-color: gainsboro;
@@ -49,27 +27,6 @@
 .form-aligned{
     margin-left: -15px;
 }
-#search-addon i{
-    font-size: 20px;
-}
-#search-results{
-    width: 100%;
-}
-
-#invited-guests-list{
-    margin-top: 20px;
-}
-
-.invited-guest{
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.invited-guest p, .invited-guest i, .invited-guest .avatar{
-    margin: 0 18px 0 0;
-}
-
 #peopleContainer .avatar{
     margin: 0 15px 0 0;
 }
@@ -78,9 +35,7 @@
     background-image: none;
     display: none;
 }
-.btn-primary a{
-    color: white;
-}
+
 #inputDate{
     width: 150px;
 }

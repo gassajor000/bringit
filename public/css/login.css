@@ -1,17 +1,17 @@
+@import "bringit-theme.css";
 *{margin: 0; padding: 0}
 
 body{
-    background-color: thistle;
-    padding-top: 30vh;
+    background-color: var(--color-primary-light);
 }
 
 .form-container{
     width: 60%;
     padding: 20px 30px;
-    background-color: thistle;
+    background-color: var(--color-primary);
     border-radius: 10px;
     box-shadow: 0 0 10px 0 #000;
-    margin: auto;
+    margin: 20vh auto;
 }
 
 ul.list{
@@ -33,14 +33,10 @@ ul.list li input{
 }
 
 ul.list li input[type="button"]{
-    background-color:#46fb5e;
-    color: #fff;
     width: 100%;
 }
 
 #sub {
-    background-color:#468efb;
-    color: #fff;
     width: 100%;
 }
 
