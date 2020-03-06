@@ -11,21 +11,10 @@
     margin-right: 50px;
     margin-bottom: 30px;
   }
-
 .card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
     background-color: var(--color-primary);
-    background-clip: border-box;
-    border: 1px solid var(--color-primary-dark);
-    border-radius: 1.25rem;
+    border-color: solid var(--color-primary-dark);
 }
-
 .event-title{
     margin: 0;
 }
