@@ -78,3 +78,9 @@
     background-image: none;
     display: none;
 }
+.btn-primary a{
+    color: white;
+}
+#inputDate{
+    width: 150px;
+}
