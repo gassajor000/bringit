@@ -55,6 +55,6 @@ function updateAvatarList(){
 
 function updateEvent() {
     var guest = invitedPeople.map(user => user.username);
-    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:$('#inputEventType')[0].value, guests:guest, eventId: eventData.id};
+    var params = {title:$('#inputName')[0].value, date:$('#inputDate')[0].value, type:"" guests:guest, eventId: eventData.id};
     $.post('./updateevent', params);
 }
