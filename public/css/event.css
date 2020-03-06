@@ -1,34 +1,14 @@
-.toolbar{
-    display: inline;
-}
-.toolbar .toolbar-back{
-    float: left;
-    padding-left: 20px;
-}
-.toolbar .toolbar-title{
-    float: left;
-    padding-left: 20px;
-    max-width: 60%;
-}
-.toolbar .toolbar-btn{
-    float: right;
-    padding-right: 20px;
-}
-
-.page-title{
-    margin-top: 0px;
-}
+@import "bringit-theme.css";
 .item-category{
     margin-top: 20px;
 }
 .item-cell{
     text-align: left;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-text);
+    border-top: none!important;
 }
-.btn-primary{
-    background-image: none;
-    padding: 2px 20px;
-    border-radius: 15px;
-}
+
 .avatar{
     display: inline-block;
     background-color: gainsboro;
@@ -40,18 +20,6 @@
 .item-details-list{
     list-style: none;
     text-align: center;
-}
-.chip{
-    padding: 8px 20px;
-    background-color: gainsboro;
-    border-radius: 18px;
-    display: inline;
-    margin: 10px 15px;
-    font-size: 12pt;
-}
-
-.well{
-    background-image: none;
 }
 
 #add-category-btn{
@@ -108,9 +76,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 6px;
+    padding: 10px;
     margin-bottom: 50px;
+    background-color: var(--color-primary-light);
+    color: var(--color-primary-text);
+    border-top: none!important;
 }
 .add-item-row p {
     margin: 0 0 0 10px;
+}
+.no-padding{
+    padding: 0!important;
+    border: none!important;
 }
