@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
 :root{
     --color-primary: #4db6ac;
     --color-primary-light: #b2dfdb;
@@ -49,8 +51,10 @@
 
 .logo{
     background-color: var(--color-primary);
+    font-family: 'Lobster', cursive;
     margin-top: 0;
     padding: 20px;
+    color: #e8f4f3;
 }
 .well{
     background-color: var(--color-primary-light);
