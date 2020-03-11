@@ -4,11 +4,18 @@ var g_allPeople = {};
 var g_guestsChangedCallback = null;
 
 var tmpInvitedPeople = [];
-var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
+var closeButton = '<i class="material-icons rem-person-btn">cancel</i>';
+var emptySearchMsg = '<li class="sys-msg">Begin typing to search</li>';
+var noResultsMsg = '<li class="sys-msg">No Results</li>';
 
 function updateSearchResults(){
     var subs = $('#inputNameSearch')[0].value.toLowerCase();
     var results = []
+
+    if(subs === ''){
+        $('#search-results').html(emptySearchMsg);
+        return;
+    }
 
     results = Object.values(g_allPeople).filter(user => user.name.toLowerCase().search(subs) != -1);
 
@@ -21,7 +28,7 @@ function updateSearchResults(){
         $('#search-results').html(resultsHTML);
         $('.search-result').click(resultClicked);
     } else {
-        $('#search-results').text('No results');
+        $('#search-results').html(noResultsMsg);
     }
    
 }

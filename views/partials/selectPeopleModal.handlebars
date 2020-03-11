@@ -21,6 +21,9 @@
 .invited-guest p, .invited-guest i, .invited-guest .avatar{
     margin: 0 18px 0 0;
 }
+.sys-msg{
+    padding: 0 20px;
+}
 
 </style>
 
@@ -41,6 +44,7 @@
                     <input type="text" class="form-control" placeholder="Search for a name" data-toggle="dropdown" aria-label="Search" aria-describedby="search-addon" id="inputNameSearch">
                     <ul class="dropdown-menu" id='search-results'>
                         {{!-- Search Results go here --}}
+                        <li class="sys-msg">Begin typing to search</li>
                     </ul>
                 </div>
             </div>
