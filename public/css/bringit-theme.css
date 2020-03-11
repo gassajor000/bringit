@@ -124,3 +124,23 @@
 .card-footer:last-child {
     border-radius: 0 0 calc(1.25rem - 1px) calc(1.25rem - 1px);
 }
+.tabs-col-2{
+    width:100%;
+}
+.tabs-col-2 li{
+    width: 50%;
+}
+.nav-tabs{
+    background-color: var(--color-primary);   
+}
+.nav-tabs .active a{
+    background-color: white;   
+}
+.nav-tabs li a{
+    color: #555555;
+    background-color: var(--color-primary-light);   
+}
+.dropdown-menu > li > a{
+    padding: 8px 20px;
+    font-size: 16px;
+}

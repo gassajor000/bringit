@@ -35,12 +35,16 @@
            
            <ul class="dropdown-menu pull-right" id="eventActionsMenu">
             <li class="dropdown-item"><a href="/edit?id={{event.id}}">Edit</a></li>
-            <li class="dropdown-item"><a href="/points?id={{event.id}}">Points</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-item"><a href="/index" id="deleteEventBtn"><div class="text-danger">Delete</div></a></li>
           </ul>                     
         </div>
     </div>
+  
+  <ul class="nav nav-tabs tabs-col-2">
+    <li role="presentation" class="active"><a href="#">Items</a></li>
+    <li role="presentation"><a href="/points?id={{event.id}}">Points</a></li>
+  </ul>
 
 <div id="items-list" class="container">
     {{#each event.categories}}
