@@ -57,15 +57,12 @@
             {{!-- Insert guests as they are added 
         </div> --}}
 
-        <label for="peopleContainer" class="col-sm-2 form-aligned">People</label>
-        <div class="well" id="peopleContainer">
+        <label for="peopleContainer" class="col-sm-2 form-aligned">Guests</label>
+        <div class="well" id="peopleContainer" data-toggle="modal" data-target="#addGuestsModal" aria-label="Invited Guests List">
             {{!-- Insert guests as they are added --}}
-            Guests will appear here when you add them
+            <div class="invite-people-text"><i class="material-icons">group_add</i>Invite People</div>
         </div>
 
-        <div class='btn-container'>
-            <button id='invite-btn' type="button" class="btn btn-primary" data-toggle="modal" data-target="#addGuestsModal" aria-label="Add People"><i class="material-icons">group_add</i>Invite People</button>
-        </div>
     </div>
 
 

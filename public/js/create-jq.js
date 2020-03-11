@@ -21,7 +21,8 @@ function initializePage(){
 var allPeople = [];
 
 var invitedPeople = [];
-var closeButton = '<i class="material-icons rem-person-btn">cancel</i>'
+var closeButton = '<i class="material-icons rem-person-btn">cancel</i>';
+var invitePeopleText = '<div class="invite-people-text"><i class="material-icons">group_add</i>Invite People</div>';
 
 function makeAvatar(name){
     return "<div class=\"avatar\">" + name[0].toUpperCase() + "</div>";
@@ -36,7 +37,7 @@ function updateAvatarList(){
         }
         $('#peopleContainer').html(avatarsHTML);
     } else{
-        $('#peopleContainer').text('Guests will appear here when you add them');
+        $('#peopleContainer').html(invitePeopleText);
     }
 }
 
